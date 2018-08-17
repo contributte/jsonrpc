@@ -27,7 +27,8 @@
 		"league/json-reference": "^1.0",
 		"league/json-guard": "^1.0",
 		"league/flysystem": "^1.0",
-		"psr/cache": "^1.0"
+		"psr/cache": "^1.0",
+		"damejidlo/datetime-factory": "^1.1"
 	},
 	"require-dev": {
 		"nette/tester": "^2.0",
@@ -36,8 +37,7 @@
 		"phpstan/phpstan": "^0.10",
 		"phpstan/phpstan-strict-rules": "^0.10",
 		"slevomat/coding-standard": "^4.0",
-		"gamee/php-code-checker-rules": "^1.0",
-		"damejidlo/datetime-factory": "^1.1"
+		"gamee/php-code-checker-rules": "^1.0"
 	},
 	"scripts": {
 		"tests": "php vendor/nette/tester/src/tester.php tests -C",
