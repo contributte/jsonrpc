@@ -13,7 +13,7 @@ Common classes used for JSON-RPC APIs.
 ### Composer:
 
 ```json
-composer require gamee-backend/php-jsonrpc
+composer require gamee/php-jsonrpc
 ```
 
 ## Configuration
