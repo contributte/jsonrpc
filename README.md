@@ -1,3 +1,8 @@
+[![Latest Stable Version](https://poser.pugx.org/gamee/php-jsonrpc/v/stable)](https://packagist.org/packages/gamee/php-jsonrpc)
+[![License](https://poser.pugx.org/gamee/php-jsonrpc/license)](https://packagist.org/packages/gamee/php-jsonrpc)
+[![Total Downloads](https://poser.pugx.org/gamee/php-jsonrpc/downloads)](https://packagist.org/packages/gamee/php-jsonrpc)
+[![Build Status](https://travis-ci.org/gameeapp/php-jsonrpc.svg?branch=master)](https://travis-ci.org/gameeapp/php-jsonrpc)
+
 # php-jsonrpc
 JSON-RPC toolset build on top of psr-7 (guzzlehttp), league/json-guard, league/json-reference and league/flysystem
 
