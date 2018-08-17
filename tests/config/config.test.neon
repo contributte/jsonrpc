@@ -1,0 +1,8 @@
+extensions:
+	jsonRpc: Gamee\JsonRPC\DI\JsonRPCExtension
+
+services:
+	- Predis\Client(%redisUri%)
+
+parameters:
+	redisUri: tcp://127.0.0.1:6379

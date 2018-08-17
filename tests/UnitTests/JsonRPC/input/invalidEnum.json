@@ -1,0 +1,12 @@
+{
+  "arrayParameter": [
+    "bar"
+  ],
+  "intParameter": 12,
+  "objectParameter": {
+    "foo": "bar"
+  },
+  "nullParameter": "null",
+  "enumParameter": "option4",
+  "stringParameter": "fooBar"
+}

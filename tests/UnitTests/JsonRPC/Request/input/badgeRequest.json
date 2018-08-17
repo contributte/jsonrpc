@@ -1,0 +1,31 @@
+[
+	{
+		"foo": "invalid json-rpc call"
+	},
+	{
+		"foo": "invalid json-rpc call with id",
+		"id": "adasdasdad"
+	},
+	{
+		"method": "user.login - invalid json-rpc call",
+		"id": null
+	},
+	{
+		"method": "user.login",
+		"id": "foo"
+	},
+	{
+		"jsonrpc": "2.0",
+		"method": "user.login"
+	},
+	{
+		"jsonrpc": "2.0",
+		"method": "user.login",
+		"id": "foo"
+	},
+	{
+		"jsonrpc": "2.0",
+		"method": "invalid.method",
+		"id": "foo"
+	}
+]

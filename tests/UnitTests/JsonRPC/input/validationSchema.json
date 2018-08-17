@@ -1,0 +1,60 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "http://jsonschema.net",
+  "properties": {
+    "arrayParameter": {
+      "type": "array",
+      "id": "http://jsonschema.net/params/arrayParameter",
+      "items": {
+        "type": "string",
+        "id": "http://jsonschema.net/params/arrayParameter/0"
+      }
+    },
+    "enumParameter": {
+      "type": "string",
+      "id": "http://jsonschema.net/params/enumParameter",
+      "enum": [
+        "option1",
+        "option2",
+        "option3"
+      ]
+    },
+    "intParameter": {
+      "type": "integer",
+      "id": "http://jsonschema.net/params/intParameter"
+    },
+    "nullParameter": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "id": "http://jsonschema.net/params/nullParameter"
+    },
+    "objectParameter": {
+      "type": "object",
+      "id": "http://jsonschema.net/params/objectParameter",
+      "properties": {
+        "foo": {
+          "type": "string",
+          "id": "http://jsonschema.net/params/objectParameter/foo"
+        }
+      },
+      "required": [
+        "foo"
+      ]
+    },
+    "stringParameter": {
+      "type": "string",
+      "id": "http://jsonschema.net/params/stringParameter"
+    }
+  },
+  "required": [
+    "arrayParameter",
+    "enumParameter",
+    "intParameter",
+    "nullParameter",
+    "stringParameter",
+    "objectParameter"
+  ]
+}

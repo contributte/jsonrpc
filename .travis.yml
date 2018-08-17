@@ -1,0 +1,16 @@
+language: php
+
+php:
+  - 7.1
+  - 7.2
+
+install:
+  - composer install --no-interaction --prefer-source
+
+script:
+  - composer phpcs
+  - composer phpstan
+  - composer tests
+
+services:
+  - redis-server
