@@ -109,7 +109,7 @@ class ResponseDataBuilder implements IResponseDataBuilder
 	 * @throws InvalidArgumentException
 	 * @return array|mixed[]
 	 */
-	private function buildResponse(IRequest $request, IResponse $response): array
+	protected function buildResponse(IRequest $request, IResponse $response): array
 	{
 		if ($response instanceof SuccessResponse) {
 			return [
