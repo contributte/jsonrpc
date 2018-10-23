@@ -80,7 +80,7 @@ class ResponseDataBuilder implements IResponseDataBuilder
 				],
 			],
 			'id' => null,
-			'time' => ($this->dateTimeImmutableFactory->getNow())->format(DATE_ATOM),
+			'time' => $this->dateTimeImmutableFactory->getNow()->format(DATE_ATOM),
 		];
 	}
 
@@ -100,7 +100,7 @@ class ResponseDataBuilder implements IResponseDataBuilder
 				],
 			],
 			'id' => null,
-			'time' => ($this->dateTimeImmutableFactory->getNow())->format(DATE_ATOM),
+			'time' => $this->dateTimeImmutableFactory->getNow()->format(DATE_ATOM),
 		];
 	}
 
@@ -116,7 +116,7 @@ class ResponseDataBuilder implements IResponseDataBuilder
 				'jsonrpc' => '2.0',
 				'result' => $response->getResult() ?: new \stdClass,
 				'id' => $request->getId(),
-				'time' => ($this->dateTimeImmutableFactory->getNow())->format(DATE_ATOM),
+				'time' => $this->dateTimeImmutableFactory->getNow()->format(DATE_ATOM),
 			];
 		}
 
@@ -131,7 +131,7 @@ class ResponseDataBuilder implements IResponseDataBuilder
 					],
 				],
 				'id' => $request->getId(),
-				'time' => ($this->dateTimeImmutableFactory->getNow())->format(DATE_ATOM),
+				'time' => $this->dateTimeImmutableFactory->getNow()->format(DATE_ATOM),
 			];
 		}
 

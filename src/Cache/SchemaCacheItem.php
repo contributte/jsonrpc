@@ -52,9 +52,6 @@ final class SchemaCacheItem implements CacheItemInterface
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public function getKey(): string
 	{
 		return $this->key->getMemberKey();
@@ -70,9 +67,6 @@ final class SchemaCacheItem implements CacheItemInterface
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public function isHit(): bool
 	{
 		return $this->isHit;
