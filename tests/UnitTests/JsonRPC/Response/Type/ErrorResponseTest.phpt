@@ -25,6 +25,11 @@ class ErrorResponseTest extends TestCase
 		Assert::same(123456789, $errorResponse->getCode());
 		Assert::same('General test message', $errorResponse->getGeneralMessage());
 		Assert::same('Test description', $errorResponse->getDescription());
+
+		$errorResponse = new ErrorResponse(1, 'Message');
+
+		Assert::same('Message', $errorResponse->getGeneralMessage());
+		Assert::same('Message', $errorResponse->getDescription());
 	}
 
 

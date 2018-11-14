@@ -33,7 +33,7 @@ final class ErrorResponse implements IResponse
 	) {
 		$this->code = $code;
 		$this->generalMessage = $generalMessage;
-		$this->description = $description === null ? $generalMessage : $description;
+		$this->description = $description ?? $generalMessage;
 	}
 
 
