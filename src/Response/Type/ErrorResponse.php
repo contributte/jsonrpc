@@ -29,12 +29,11 @@ final class ErrorResponse implements IResponse
 	public function __construct(
 		int $code,
 		string $generalMessage,
-		string $description
-	)
-	{
+		?string $description = null
+	) {
 		$this->code = $code;
 		$this->generalMessage = $generalMessage;
-		$this->description = $description;
+		$this->description = $description === null ? $generalMessage : $description;
 	}
 
 
