@@ -52,7 +52,7 @@ final class RequestCollectionFactory implements IRequestCollectionFactory
 	/**
 	 * @param array|mixed[]|\stdClass $requestData
 	 */
-	private function createRequestFromRequestData($requestData): IRequest
+	public function createRequestFromRequestData($requestData): IRequest
 	{
 		if (!$requestData instanceof \stdClass) {
 			return $this->createInvalidRequest($requestData, 'Invalid JSON-RPC format');
