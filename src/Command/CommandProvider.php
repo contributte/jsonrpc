@@ -8,7 +8,7 @@ use Gamee\JsonRPC\Command\Exception\CommandNotFindException;
 use Nette\DI\Container;
 use Nette\DI\MissingServiceException;
 
-final class CommandProvider
+class CommandProvider
 {
 
 	/**
