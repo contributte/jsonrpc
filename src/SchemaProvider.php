@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Gamee\JsonRPC;
 
 use Gamee\JsonRPC\Cache\Key\JsonSchemaMemberKey;
-use Gamee\JsonRPC\Cache\RedisPool;
 use Gamee\JsonRPC\Cache\SchemaCacheItem;
 use Gamee\JsonRPC\Exception\MissingSchemaException;
 use Gamee\JsonRPC\Exception\SchemaValidatorException;
@@ -13,14 +12,15 @@ use League\Flysystem\FileNotFoundException;
 use League\Flysystem\Filesystem;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
+use Psr\Cache\CacheItemPoolInterface;
 
 final class SchemaProvider implements ISchemaProvider
 {
 
 	/**
-	 * @var RedisPool
+	 * @var CacheItemPoolInterface
 	 */
-	private $redisPool;
+	private $cacheItemPool;
 
 	/**
 	 * @var Filesystem
@@ -33,9 +33,12 @@ final class SchemaProvider implements ISchemaProvider
 	private $projectName;
 
 
-	public function __construct(string $projectName, RedisPool $redisPool, Filesystem $schemaFileSystem)
-	{
-		$this->redisPool = $redisPool;
+	public function __construct(
+		string $projectName,
+		CacheItemPoolInterface $cacheItemPool,
+		Filesystem $schemaFileSystem
+	) {
+		$this->cacheItemPool = $cacheItemPool;
 		$this->schemaFileSystem = $schemaFileSystem;
 		$this->projectName = $projectName;
 	}
@@ -49,8 +52,8 @@ final class SchemaProvider implements ISchemaProvider
 	{
 		$key = new JsonSchemaMemberKey($this->projectName, $identifier);
 
-		if ($this->redisPool->hasItem($key->getMemberKey())) {
-			return $this->parseJsonSchema($this->redisPool->getItem($key->getMemberKey())->get(), $identifier);
+		if ($this->cacheItemPool->hasItem($key->getMemberKey())) {
+			return $this->parseJsonSchema($this->cacheItemPool->getItem($key->getMemberKey())->get(), $identifier);
 		}
 
 		$schema = null;
@@ -67,7 +70,7 @@ final class SchemaProvider implements ISchemaProvider
 		}
 
 		$item = new SchemaCacheItem($key, $schema, new \DateTimeImmutable(), true, true);
-		$this->redisPool->save($item);
+		$this->cacheItemPool->save($item);
 
 		return $this->parseJsonSchema($item->get(), $identifier);
 	}

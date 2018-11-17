@@ -21,19 +21,21 @@ final class JsonRPCExtension extends CompilerExtension
 {
 
 	/**
-	 * @var array<array|string|int>
+	 * @var array<array|string|int|bool>
 	 */
 	public $defaults = [
 		'methodsMapping' => [], // commandName => Command\Class,
 		'jsonSchemaFilesDir' => '',
 		'projectName' => '',
 		'ttlInSeconds' => 31556926, // 1 year
+		'registerRedisPool' => true,
 	];
 
 
 	public function loadConfiguration(): void
 	{
-		$config = $this->validateConfig($this->defaults, $this->getConfig());
+		$this->config = $this->validateConfig($this->defaults, $this->getConfig());
+
 		$builder = $this->getContainerBuilder();
 
 		$builder->addDefinition($this->prefix('httpRequestFactory'))
@@ -43,7 +45,7 @@ final class JsonRPCExtension extends CompilerExtension
 			->setType(RequestCollectionFactory::class);
 
 		$builder->addDefinition($this->prefix('localAdapterForSchemes'))
-			->setFactory(Local::class, [$config['jsonSchemaFilesDir']]);
+			->setFactory(Local::class, [$this->config['jsonSchemaFilesDir']]);
 
 		$builder->addDefinition($this->prefix('schemaFileSystem'))
 			->setType(Filesystem::class)->setAutowired(false);
@@ -66,23 +68,11 @@ final class JsonRPCExtension extends CompilerExtension
 		$builder->addDefinition($this->prefix('dereferencer'))
 			->setType(Dereferencer::class);
 
-		if (!is_int($config['ttlInSeconds'])) {
+		if (!is_int($this->config['ttlInSeconds'])) {
 			throw new \UnexpectedValueException('ttlInSeconds has to be int');
 		}
 
-		$builder->addDefinition($this->prefix('redisPool'))
-			->setType(RedisPool::class)
-			->setArguments([$config['ttlInSeconds']]);
-
-		$builder->addDefinition($this->prefix('schemaProvider'))
-			->setType(SchemaProvider::class)
-			->setArguments([
-				$config['projectName'],
-				'@' . $this->prefix('redisPool'),
-				'@' . $this->prefix('schemaFileSystem'),
-			]);
-
-		foreach ($config['methodsMapping'] as $commandName => $commandClass) {
+		foreach ($this->config['methodsMapping'] as $commandName => $commandClass) {
 			if ($builder->getByType($commandClass) === null) {
 				$builder->addDefinition($this->prefix("command.$commandName"))
 					->setType($commandClass);
@@ -90,5 +80,28 @@ final class JsonRPCExtension extends CompilerExtension
 
 			$commandProvider->addSetup('addCommandClass', [$commandName, $commandClass]);
 		}
+	}
+
+
+	public function beforeCompile(): void
+	{
+		$builder = $this->getContainerBuilder();
+
+		$schemaProviderArgs = [
+			$this->config['projectName'],
+			'@' . $this->prefix('redisPool'),
+		];
+
+		if ($this->config['registerRedisPool'] === true) {
+			$builder->addDefinition($this->prefix('redisPool'))
+				->setType(RedisPool::class)
+				->setArguments([$this->config['ttlInSeconds']]);
+
+			$schemaProviderArgs[] = '@' . $this->prefix('schemaFileSystem');
+		}
+
+		$builder->addDefinition($this->prefix('schemaProvider'))
+			->setType(SchemaProvider::class)
+			->setArguments($schemaProviderArgs);
 	}
 }
