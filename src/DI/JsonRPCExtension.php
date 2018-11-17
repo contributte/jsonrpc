@@ -89,7 +89,7 @@ final class JsonRPCExtension extends CompilerExtension
 
 		$schemaProviderArgs = [
 			$this->config['projectName'],
-			'@' . $this->prefix('redisPool'),
+			'@' . $this->prefix('schemaFileSystem'),
 		];
 
 		if ($this->config['registerRedisPool'] === true) {
@@ -97,7 +97,7 @@ final class JsonRPCExtension extends CompilerExtension
 				->setType(RedisPool::class)
 				->setArguments([$this->config['ttlInSeconds']]);
 
-			$schemaProviderArgs[] = '@' . $this->prefix('schemaFileSystem');
+			$schemaProviderArgs[] = '@' . $this->prefix('redisPool');
 		}
 
 		$builder->addDefinition($this->prefix('schemaProvider'))

@@ -18,11 +18,6 @@ final class SchemaProvider implements ISchemaProvider
 {
 
 	/**
-	 * @var CacheItemPoolInterface
-	 */
-	private $cacheItemPool;
-
-	/**
 	 * @var Filesystem
 	 */
 	private $schemaFileSystem;
@@ -32,15 +27,20 @@ final class SchemaProvider implements ISchemaProvider
 	 */
 	private $projectName;
 
+	/**
+	 * @var CacheItemPoolInterface
+	 */
+	private $cacheItemPool;
+
 
 	public function __construct(
 		string $projectName,
-		CacheItemPoolInterface $cacheItemPool,
-		Filesystem $schemaFileSystem
+		Filesystem $schemaFileSystem,
+		CacheItemPoolInterface $cacheItemPool
 	) {
-		$this->cacheItemPool = $cacheItemPool;
-		$this->schemaFileSystem = $schemaFileSystem;
 		$this->projectName = $projectName;
+		$this->schemaFileSystem = $schemaFileSystem;
+		$this->cacheItemPool = $cacheItemPool;
 	}
 
 
