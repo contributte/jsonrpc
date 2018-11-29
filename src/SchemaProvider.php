@@ -99,7 +99,7 @@ final class SchemaProvider implements ISchemaProvider
 			return Json::decode($jsonSchema);
 		} catch (JsonException $e) {
 			throw new SchemaValidatorException(sprintf(
-				'Schema for project %s and endpoint %s does not exists',
+				'Schema for project %s and endpoint %s contains invalid JSON',
 				$this->projectName,
 				$identifier
 			));
