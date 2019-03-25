@@ -25,5 +25,16 @@ interface IResponseDataBuilder
 	/**
 	 * @return array|mixed[]
 	 */
+	public function buildErrorResponse(
+		int $code,
+		string $message,
+		string $reason,
+		?string $id = null
+	): array;
+
+
+	/**
+	 * @return array|mixed[]
+	 */
 	public function buildParseError(string $errorMessage): array;
 }

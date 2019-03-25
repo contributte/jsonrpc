@@ -91,6 +91,9 @@ class ResponseDataBuilder implements IResponseDataBuilder
 	}
 
 
+	/**
+	 * @inheritdoc
+	 */
 	public function buildErrorResponse(
 		int $code,
 		string $message,
