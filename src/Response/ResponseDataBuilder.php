@@ -70,18 +70,11 @@ class ResponseDataBuilder implements IResponseDataBuilder
 	 */
 	public function buildServerError(): array
 	{
-		return [
-			'jsonrpc' => '2.0',
-			'error' => [
-				'code' => GenericCodes::CODE_INTERNAL_ERROR,
-				'message' => 'Server error',
-				'data' => [
-					'reason' => 'Server error',
-				],
-			],
-			'id' => null,
-			'time' => $this->dateTimeImmutableFactory->getNow()->format(DATE_ATOM),
-		];
+		return $this->buildErrorResponse(
+			GenericCodes::CODE_INTERNAL_ERROR,
+			'Server error',
+			'Server error'
+		);
 	}
 
 
@@ -90,16 +83,31 @@ class ResponseDataBuilder implements IResponseDataBuilder
 	 */
 	public function buildParseError(string $errorMessage): array
 	{
+		return $this->buildErrorResponse(
+			GenericCodes::CODE_PARSE_ERROR,
+			'Parse error',
+			$errorMessage
+		);
+	}
+
+
+	public function buildErrorResponse(
+		int $code,
+		string $message,
+		string $reason,
+		?string $id = null
+	): array
+	{
 		return [
 			'jsonrpc' => '2.0',
 			'error' => [
-				'code' => GenericCodes::CODE_PARSE_ERROR,
-				'message' => 'Parse error',
+				'code' => $code,
+				'message' => $message,
 				'data' => [
-					'reason' => $errorMessage,
+					'reason' => $reason,
 				],
 			],
-			'id' => null,
+			'id' => $id,
 			'time' => $this->dateTimeImmutableFactory->getNow()->format(DATE_ATOM),
 		];
 	}
@@ -121,18 +129,12 @@ class ResponseDataBuilder implements IResponseDataBuilder
 		}
 
 		if ($response instanceof ErrorResponse) {
-			return [
-				'jsonrpc' => '2.0',
-				'error' => [
-					'code' => $response->getCode(),
-					'message' => $response->getGeneralMessage(),
-					'data' => [
-						'reason' => $response->getDescription(),
-					],
-				],
-				'id' => $request->getId(),
-				'time' => $this->dateTimeImmutableFactory->getNow()->format(DATE_ATOM),
-			];
+			return $this->buildErrorResponse(
+				$response->getCode(),
+				$response->getGeneralMessage(),
+				$response->getDescription(),
+				$request->getId()
+			);
 		}
 
 		throw new InvalidArgumentException('Unknown response type');
