@@ -9,10 +9,6 @@ use Gamee\JsonRPC\Request\RequestCollection;
 interface IResponseDataBuilder
 {
 
-	/**
-	 * @param RequestCollection $requestCollection
-	 * @return array|IResponse[]
-	 */
 	public function buildResponseBadge(RequestCollection $requestCollection): array;
 
 

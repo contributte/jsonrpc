@@ -28,8 +28,7 @@ final class RequestCollection extends \SplObjectStorage
 
 
 	/**
-	 * @todo after 7.2 add static type IRequest
-	 * @param IRequest $object
+	 * {@inheritDoc}
 	 */
 	public function offsetGet($object): ?IResponse
 	{

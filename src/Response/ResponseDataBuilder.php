@@ -31,9 +31,6 @@ class ResponseDataBuilder implements IResponseDataBuilder
 	}
 
 
-	/**
-	 * @inheritdoc
-	 */
 	public function buildResponseBadge(RequestCollection $requestCollection): array
 	{
 		if (!$requestCollection->isBatchedRequest()) {

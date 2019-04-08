@@ -34,14 +34,11 @@
 		"nette/tester": "^2.0",
 		"mockery/mockery": "^1.0",
 		"predis/predis": "^1.1",
-		"phpstan/phpstan": "^0.10",
-		"phpstan/phpstan-strict-rules": "^0.10",
-		"slevomat/coding-standard": "^4.0",
-		"gamee/php-code-checker-rules": "^1.0"
+		"gamee/php-code-checker-rules": "^1.2"
 	},
 	"scripts": {
 		"tests": "php vendor/nette/tester/src/tester.php tests -C",
-		"phpstan": "vendor/bin/phpstan analyse src tests -c vendor/gamee/php-code-checker-rules/phpstan.neon --level 7",
+		"phpstan": "vendor/bin/phpstan analyse src tests -c phpstan.neon --level 7",
 		"phpcs": "vendor/bin/phpcs --standard=vendor/gamee/php-code-checker-rules/ruleset.xml --extensions=php,phpt --tab-width=4 --ignore=temp -sp src tests",
 		"phpcsfix": "vendor/bin/phpcbf --standard=vendor/gamee/php-code-checker-rules/ruleset.xml --extensions=php,phpt --tab-width=4 --ignore=temp -sp src tests"
 	}
