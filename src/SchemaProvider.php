@@ -62,11 +62,11 @@ final class SchemaProvider implements ISchemaProvider
 			$schemaFilePath = $this->getSchemaFilePath($identifier);
 			$schema = $this->schemaFileSystem->read($schemaFilePath);
 		} catch (FileNotFoundException $e) {
-			$this->throwMissingSchemaException($identifier);
+			throw $this->createMissingSchemaException($identifier);
 		}
 
 		if (!is_string($schema)) {
-			$this->throwMissingSchemaException($identifier);
+			throw $this->createMissingSchemaException($identifier);
 		}
 
 		$item = new SchemaCacheItem($key, $schema, new \DateTimeImmutable(), true, true);
@@ -90,9 +90,6 @@ final class SchemaProvider implements ISchemaProvider
 	}
 
 
-	/**
-	 * @throws SchemaValidatorException
-	 */
 	private function parseJsonSchema(string $jsonSchema, string $identifier): \stdClass
 	{
 		try {
@@ -107,12 +104,9 @@ final class SchemaProvider implements ISchemaProvider
 	}
 
 
-	/**
-	 * @throws MissingSchemaException
-	 */
-	private function throwMissingSchemaException(string $identifier): void
+	private function createMissingSchemaException(string $identifier): MissingSchemaException
 	{
-		throw new MissingSchemaException(sprintf(
+		return new MissingSchemaException(sprintf(
 			'Schema for project %s and endpoint %s does not exists',
 			$this->projectName,
 			$identifier

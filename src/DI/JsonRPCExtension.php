@@ -17,6 +17,9 @@ use League\Flysystem\Filesystem;
 use League\JsonReference\Dereferencer;
 use Nette\DI\CompilerExtension;
 
+/**
+ * @property-read array $config
+ */
 final class JsonRPCExtension extends CompilerExtension
 {
 
@@ -34,7 +37,7 @@ final class JsonRPCExtension extends CompilerExtension
 
 	public function loadConfiguration(): void
 	{
-		$this->config = $this->validateConfig($this->defaults, $this->getConfig());
+		$this->validateConfig($this->defaults);
 
 		$builder = $this->getContainerBuilder();
 
