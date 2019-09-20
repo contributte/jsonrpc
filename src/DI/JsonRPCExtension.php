@@ -14,7 +14,6 @@ use Gamee\JsonRPC\SchemaProvider;
 use Gamee\JsonRPC\SchemeValidator;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
-use League\JsonReference\Dereferencer;
 use Nette\DI\CompilerExtension;
 
 /**
@@ -67,9 +66,6 @@ final class JsonRPCExtension extends CompilerExtension
 
 		$commandProvider = $builder->addDefinition($this->prefix('commandProvider'))
 			->setType(CommandProvider::class);
-
-		$builder->addDefinition($this->prefix('dereferencer'))
-			->setType(Dereferencer::class);
 
 		if (!is_int($this->config['ttlInSeconds'])) {
 			throw new \UnexpectedValueException('ttlInSeconds has to be int');
