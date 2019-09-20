@@ -60,27 +60,27 @@ class SchemeValidatorTest extends TestCase
 		return[
 			[
 				__DIR__ . '/input/invalidArray.json',
-				'Parameters are not valid: /arrayParameter : The data must be a(n) array.',
+				'Parameters are not valid: arrayParameter : Object value found, but an array is required',
 			],
 			[
 				__DIR__ . '/input/invalidEnum.json',
-				'Parameters are not valid: /enumParameter : The value must be one of: ["option1","option2","option3"]',
+				'Parameters are not valid: enumParameter : Does not have a value in the enumeration ["option1","option2","option3"]',
 			],
 			[
 				__DIR__ . '/input/invalidInt.json',
-				'Parameters are not valid: /intParameter : The data must be a(n) integer.',
+				'Parameters are not valid: intParameter : Double value found, but an integer is required',
 			],
 			[
 				__DIR__ . '/input/invalidNull.json',
-				'Parameters are not valid: /nullParameter : The data must be one of ["string","null"].',
+				'Parameters are not valid: nullParameter : Integer value found, but a string or a null is required',
 			],
 			[
 				__DIR__ . '/input/invalidObject.json',
-				'Parameters are not valid: /objectParameter : The data must be a(n) object.',
+				'Parameters are not valid: objectParameter : Array value found, but an object is required',
 			],
 			[
 				__DIR__ . '/input/invalidString.json',
-				'Parameters are not valid: /stringParameter : The data must be a(n) string.',
+				'Parameters are not valid: stringParameter : Integer value found, but a string is required',
 			],
 		];
 	}
