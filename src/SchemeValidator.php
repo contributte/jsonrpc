@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Gamee\JsonRPC;
 
 use Gamee\JsonRPC\Exception\SchemaValidatorException;
+use JsonSchema\Exception\InvalidArgumentException;
 use JsonSchema\Validator;
 
 class SchemeValidator
@@ -32,7 +33,13 @@ class SchemeValidator
 
 		$validator = new Validator;
 
-		$validator->validate($parameters, $schema);
+		try {
+			$validator->validate($parameters, $schema);
+		} catch (InvalidArgumentException $e) {
+			throw new SchemaValidatorException(
+				sprintf('Parameters are not valid: %s', $e->getMessage())
+			);
+		}
 
 		if ($validator->isValid()) {
 			return;
