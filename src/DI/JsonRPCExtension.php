@@ -15,6 +15,7 @@ use Gamee\JsonRPC\SchemeValidator;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use Nette\DI\CompilerExtension;
+use Nette\DI\Extensions\InjectExtension;
 
 /**
  * @property-read array $config
@@ -74,7 +75,8 @@ final class JsonRPCExtension extends CompilerExtension
 		foreach ($this->config['methodsMapping'] as $commandName => $commandClass) {
 			if ($builder->getByType($commandClass) === null) {
 				$builder->addDefinition($this->prefix("command.$commandName"))
-					->setType($commandClass);
+					->setType($commandClass)
+					->addTag(InjectExtension::TAG_INJECT);
 			}
 
 			$commandProvider->addSetup('addCommandClass', [$commandName, $commandClass]);
