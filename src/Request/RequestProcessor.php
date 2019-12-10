@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Gamee\JsonRPC\Request;
 
 use Gamee\JsonRPC\Command\CommandProvider;
-use Gamee\JsonRPC\Command\Exception\CommandNotFindException;
+use Gamee\JsonRPC\Command\Exception\CommandNotFoundException;
 use Gamee\JsonRPC\Command\ICommand;
 use Gamee\JsonRPC\Command\ICommandDTO;
 use Gamee\JsonRPC\Exception\MissingSchemaException;
@@ -64,14 +64,8 @@ class RequestProcessor implements IRequestProcessor
 	{
 		try {
 			return $this->commandProvider->getCommandByName($request->getMethod());
-		} catch (CommandNotFindException $e) {
-			throw new MethodNotFoundException(
-				"Method [{$request->getMethod()}] does not exist"
-			);
-		} catch (\InvalidArgumentException $e) {
-			throw new ServerErrorException(
-				"Method [{$request->getMethod()}] has invalid implementation"
-			);
+		} catch (CommandNotFoundException $e) {
+			throw new MethodNotFoundException($e->getMessage());
 		}
 	}
 

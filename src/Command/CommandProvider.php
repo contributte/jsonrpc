@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Gamee\JsonRPC\Command;
 
-use Gamee\JsonRPC\Command\Exception\CommandNotFindException;
+use Gamee\JsonRPC\Command\Exception\CommandNotFoundException;
 use Nette\DI\Container;
 use Nette\DI\MissingServiceException;
 
@@ -35,12 +35,12 @@ class CommandProvider
 
 
 	/**
-	 * @throws CommandNotFindException
+	 * @throws CommandNotFoundException
 	 */
 	public function getCommandByName(string $commandName): ICommand
 	{
 		if (!isset($this->commandMapping[$commandName])) {
-			throw new CommandNotFindException("Unknown command [$commandName]");
+			throw new CommandNotFoundException("Unknown command [$commandName]");
 		}
 
 		$commandClass = $this->commandMapping[$commandName];
@@ -48,11 +48,11 @@ class CommandProvider
 		try {
 			$command = $this->container->getByType($commandClass);
 		} catch (MissingServiceException $e) {
-			throw new CommandNotFindException("Unknown command [$commandClass]", $e->getCode(), $e);
+			throw new CommandNotFoundException("Unknown command [$commandClass]", $e->getCode(), $e);
 		}
 
 		if (!$command instanceof ICommand) {
-			throw new \InvalidArgumentException(
+			throw new CommandNotFoundException(
 				"Command [$commandClass] is not an instance of " . ICommand::class
 			);
 		}
