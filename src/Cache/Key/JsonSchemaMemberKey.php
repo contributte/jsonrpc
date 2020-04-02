@@ -7,10 +7,7 @@ namespace Gamee\JsonRPC\Cache\Key;
 final class JsonSchemaMemberKey extends JsonSchemaKey
 {
 
-	/**
-	 * @var string
-	 */
-	private $endpoint;
+	private string $endpoint;
 
 
 	public function __construct(string $project, string $endpoint)

@@ -18,10 +18,7 @@ require_once __DIR__ . '/../../../bootstrap.php';
 class RequestCollectionFactoryTest extends TestCase
 {
 
-	/**
-	 * @var RequestCollectionFactory
-	 */
-	private $requestCollectionFactory;
+	private RequestCollectionFactory $requestCollectionFactory;
 
 
 	public function setUp(): void

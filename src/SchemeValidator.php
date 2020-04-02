@@ -11,10 +11,7 @@ use JsonSchema\Validator;
 class SchemeValidator
 {
 
-	/**
-	 * @var ISchemaProvider
-	 */
-	private $schemaProvider;
+	private ISchemaProvider $schemaProvider;
 
 
 	public function __construct(ISchemaProvider $schemaProvider)

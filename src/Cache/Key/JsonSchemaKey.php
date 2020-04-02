@@ -9,10 +9,7 @@ class JsonSchemaKey
 
 	private const CACHE_KEY = 'json-schema:<project>';
 
-	/**
-	 * @var string
-	 */
-	protected $projectName;
+	protected string $projectName;
 
 
 	public function __construct(string $projectName)

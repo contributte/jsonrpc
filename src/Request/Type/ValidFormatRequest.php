@@ -9,20 +9,11 @@ use Gamee\JsonRPC\Request\IRequest;
 final class ValidFormatRequest implements IRequest
 {
 
-	/**
-	 * @var string
-	 */
-	private $method;
+	private string $method;
 
-	/**
-	 * @var \stdClass
-	 */
-	private $params;
+	private \stdClass $params;
 
-	/**
-	 * @var string|null
-	 */
-	private $id;
+	private ?string $id = null;
 
 
 	public function __construct(string $method, \stdClass $params, ?string $id)

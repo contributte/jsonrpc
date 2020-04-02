@@ -10,20 +10,11 @@ use Gamee\JsonRPC\Response\IResponse;
 final class ErrorResponse implements IResponse
 {
 
-	/**
-	 * @var int
-	 */
-	private $code;
+	private int $code;
 
-	/**
-	 * @var string
-	 */
-	private $generalMessage;
+	private string $generalMessage;
 
-	/**
-	 * @var string
-	 */
-	private $description;
+	private string $description;
 
 
 	public function __construct(

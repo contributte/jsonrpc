@@ -17,20 +17,11 @@ use Psr\Cache\CacheItemPoolInterface;
 final class SchemaProvider implements ISchemaProvider
 {
 
-	/**
-	 * @var Filesystem
-	 */
-	private $schemaFileSystem;
+	private Filesystem $schemaFileSystem;
 
-	/**
-	 * @var string
-	 */
-	private $projectName;
+	private string $projectName;
 
-	/**
-	 * @var CacheItemPoolInterface
-	 */
-	private $cacheItemPool;
+	private CacheItemPoolInterface $cacheItemPool;
 
 
 	public function __construct(

@@ -26,7 +26,7 @@ final class JsonRPCExtension extends CompilerExtension
 	/**
 	 * @var array<array|string|int|bool>
 	 */
-	public $defaults = [
+	public array $defaults = [
 		'methodsMapping' => [], // commandName => Command\Class,
 		'jsonSchemaFilesDir' => '',
 		'projectName' => '',

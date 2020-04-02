@@ -14,20 +14,14 @@ use Psr\Cache\CacheItemPoolInterface;
 final class RedisPool implements CacheItemPoolInterface
 {
 
-	/**
-	 * @var int
-	 */
-	private $ttlInSeconds;
+	private int $ttlInSeconds;
 
-	/**
-	 * @var Client
-	 */
-	private $predisClient;
+	private Client $predisClient;
 
 	/**
 	 * @var array|CacheItemInterface[]
 	 */
-	private $deferrerItems = [];
+	private array $deferrerItems = [];
 
 
 	public function __construct(
@@ -117,18 +111,17 @@ final class RedisPool implements CacheItemPoolInterface
 	/**
 	 * {@inheritDoc}
 	 */
-	public function deleteItems(array $keys)
+	public function deleteItems(array $keys): bool
 	{
 		foreach ($keys as $key) {
 			$this->deleteItem($key);
 		}
+
+		return true;
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public function save(CacheItemInterface $item)
+	public function save(CacheItemInterface $item): bool
 	{
 		$redisKey = $this->createKey($item->getKey());
 
@@ -137,15 +130,16 @@ final class RedisPool implements CacheItemPoolInterface
 			$redisKey->getMemberKey(),
 			$item->get()
 		);
+
+		return true;
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public function saveDeferred(CacheItemInterface $item)
+	public function saveDeferred(CacheItemInterface $item): bool
 	{
 		$this->deferrerItems[] = $item;
+
+		return true;
 	}
 
 

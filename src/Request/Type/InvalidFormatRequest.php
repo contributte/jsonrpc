@@ -9,15 +9,9 @@ use Gamee\JsonRPC\Request\IRequest;
 final class InvalidFormatRequest implements IRequest
 {
 
-	/**
-	 * @var string
-	 */
-	private $message;
+	private string $message;
 
-	/**
-	 * @var string|null
-	 */
-	private $id;
+	private ?string $id = null;
 
 
 	public function __construct(string $message, ?string $id = null)

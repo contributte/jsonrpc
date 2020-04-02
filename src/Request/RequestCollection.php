@@ -9,10 +9,7 @@ use Gamee\JsonRPC\Response\IResponse;
 final class RequestCollection extends \SplObjectStorage
 {
 
-	/**
-	 * @var bool
-	 */
-	private $isBatchedRequest = true;
+	private bool $isBatchedRequest = true;
 
 
 	public function current(): IRequest

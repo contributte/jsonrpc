@@ -18,21 +18,7 @@ use Tester\Assert;
 class RedisPoolTest extends IntegrationTestCase
 {
 
-	/**
-	 * @var RedisPool
-	 */
-	private $redisPool;
-
-
-	protected function setUp(): void
-	{
-		parent::setUp();
-
-		/** @var RedisPool $redisPool */
-		$redisPool = $this->getContainer()->getByType(RedisPool::class);
-
-		$this->redisPool = $redisPool;
-	}
+	private RedisPool $redisPool;
 
 
 	public function testBasicFunctionality(): void
@@ -88,6 +74,17 @@ class RedisPoolTest extends IntegrationTestCase
 		$emptyItemFromCache = $this->redisPool->getItem($key->getMemberKey());
 
 		Assert::equal($emptyItem->get(), $emptyItemFromCache->get());
+	}
+
+
+	protected function setUp(): void
+	{
+		parent::setUp();
+
+		/** @var RedisPool $redisPool */
+		$redisPool = $this->getContainer()->getByType(RedisPool::class);
+
+		$this->redisPool = $redisPool;
 	}
 }
 

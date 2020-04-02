@@ -8,6 +8,9 @@ use Gamee\JsonRPC\Exception\MissingHttpMethod;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\RequestInterface;
 
+/**
+ * @phpcs:disable SlevomatCodingStandard.Variables.DisallowSuperGlobalVariable.DisallowedSuperGlobalVariable
+ */
 final class RequestFactory
 {
 
@@ -19,6 +22,12 @@ final class RequestFactory
 			$this->getHttpHeaders(),
 			$this->getRawBody()
 		);
+	}
+
+
+	public function getRawBody(): string
+	{
+		return (string) file_get_contents('php://input');
 	}
 
 
@@ -74,11 +83,5 @@ final class RequestFactory
 		}
 
 		return $headers;
-	}
-
-
-	public function getRawBody(): string
-	{
-		return (string) file_get_contents('php://input');
 	}
 }

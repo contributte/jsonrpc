@@ -10,30 +10,15 @@ use Psr\Cache\CacheItemInterface;
 final class SchemaCacheItem implements CacheItemInterface
 {
 
-	/**
-	 * @var JsonSchemaMemberKey
-	 */
-	private $key;
+	private JsonSchemaMemberKey $key;
 
-	/**
-	 * @var string
-	 */
-	private $value;
+	private string $value;
 
-	/**
-	 * @var \DateTimeInterface
-	 */
-	private $expiresAt;
+	private \DateTimeInterface $expiresAt;
 
-	/**
-	 * @var bool
-	 */
-	private $isHit;
+	private bool $isHit;
 
-	/**
-	 * @var bool
-	 */
-	private $exists;
+	private bool $exists;
 
 
 	public function __construct(

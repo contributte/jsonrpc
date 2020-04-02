@@ -86,8 +86,6 @@ final class RequestCollectionFactory implements IRequestCollectionFactory
 
 	/**
 	 * @param array|mixed[]|\stdClass $requestData
-	 * @param string $errorMessage
-	 * @return InvalidFormatRequest
 	 */
 	private function createInvalidRequest(
 		$requestData,

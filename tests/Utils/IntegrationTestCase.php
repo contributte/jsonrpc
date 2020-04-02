@@ -12,10 +12,7 @@ use Tester\TestCase;
 abstract class IntegrationTestCase extends TestCase
 {
 
-	/**
-	 * @var Container
-	 */
-	private $container;
+	private ?Container $container = null;
 
 
 	protected function getContainer(): Container
@@ -43,6 +40,15 @@ abstract class IntegrationTestCase extends TestCase
 
 		$client = $this->getRedisClient();
 		$client->flushdb();
+	}
+
+
+	protected function getRedisClient(): Client
+	{
+		/** @var Client $client */
+		$client = $this->getContainer()->getByType(Client::class);
+
+		return $client;
 	}
 
 
@@ -74,14 +80,5 @@ abstract class IntegrationTestCase extends TestCase
 		$container = $config->createContainer();
 
 		return $this->container = $container;
-	}
-
-
-	protected function getRedisClient(): Client
-	{
-		/** @var Client $client */
-		$client = $this->getContainer()->getByType(Client::class);
-
-		return $client;
 	}
 }

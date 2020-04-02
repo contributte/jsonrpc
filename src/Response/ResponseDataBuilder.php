@@ -15,10 +15,7 @@ use InvalidArgumentException;
 class ResponseDataBuilder implements IResponseDataBuilder
 {
 
-	/**
-	 * @var DateTimeImmutableFactory
-	 */
-	private $dateTimeImmutableFactory;
+	private DateTimeImmutableFactory $dateTimeImmutableFactory;
 
 
 	public function __construct(?DateTimeImmutableFactory $dateTimeImmutableFactory = null)
@@ -122,7 +119,7 @@ class ResponseDataBuilder implements IResponseDataBuilder
 		if ($response instanceof SuccessResponse) {
 			return [
 				'jsonrpc' => '2.0',
-				'result' => $response->getResult() ?: new \stdClass,
+				'result' => $response->getResult() ?? new \stdClass,
 				'id' => $request->getId(),
 				'time' => $this->dateTimeImmutableFactory->getNow()->format(DATE_ATOM),
 			];

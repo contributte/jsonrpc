@@ -9,10 +9,7 @@ use Gamee\JsonRPC\Response\IResponse;
 final class SuccessResponse implements IResponse
 {
 
-	/**
-	 * @var \stdClass|null
-	 */
-	private $result;
+	private ?\stdClass $result = null;
 
 
 	public function __construct(?\stdClass $result)

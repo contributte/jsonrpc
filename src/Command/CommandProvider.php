@@ -11,15 +11,12 @@ use Nette\DI\MissingServiceException;
 class CommandProvider
 {
 
-	/**
-	 * @var Container
-	 */
-	private $container;
+	private Container $container;
 
 	/**
 	 * @var string[]
 	 */
-	private $commandMapping = [];
+	private array $commandMapping = [];
 
 
 	public function __construct(Container $container)

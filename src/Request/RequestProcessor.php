@@ -21,15 +21,9 @@ use Gamee\JsonRPC\SchemeValidator;
 class RequestProcessor implements IRequestProcessor
 {
 
-	/**
-	 * @var CommandProvider
-	 */
-	private $commandProvider;
+	private CommandProvider $commandProvider;
 
-	/**
-	 * @var SchemeValidator
-	 */
-	private $schemeValidator;
+	private SchemeValidator $schemeValidator;
 
 
 	public function __construct(CommandProvider $commandProvider, SchemeValidator $schemeValidator)

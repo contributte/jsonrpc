@@ -25,10 +25,7 @@ require_once __DIR__ . '/../../../bootstrap.php';
 class ResponseDataBuilderTest extends TestCase
 {
 
-	/**
-	 * @var IResponseDataBuilder
-	 */
-	private $responseDataBuilder;
+	private IResponseDataBuilder $responseDataBuilder;
 
 
 	public function setUp(): void
