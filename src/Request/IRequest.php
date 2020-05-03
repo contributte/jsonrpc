@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Request;
+namespace Contributte\JsonRPC\Request;
 
 interface IRequest
 {

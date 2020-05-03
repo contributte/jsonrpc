@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Request\Type;
+namespace Contributte\JsonRPC\Request\Type;
 
-use Gamee\JsonRPC\Request\IRequest;
+use Contributte\JsonRPC\Request\IRequest;
 
 final class InvalidFormatRequest implements IRequest
 {

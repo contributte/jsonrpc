@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Tests\IntegrationTests\Cache;
+namespace Contributte\JsonRPC\Tests\IntegrationTests\Cache;
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-use Gamee\JsonRPC\Cache\Key\JsonSchemaMemberKey;
-use Gamee\JsonRPC\Cache\RedisPool;
-use Gamee\JsonRPC\Cache\SchemaCacheItem;
-use Gamee\JsonRPC\Tests\Utils\IntegrationTestCase;
+use Contributte\JsonRPC\Cache\Key\JsonSchemaMemberKey;
+use Contributte\JsonRPC\Cache\RedisPool;
+use Contributte\JsonRPC\Cache\SchemaCacheItem;
+use Contributte\JsonRPC\Tests\Utils\IntegrationTestCase;
 use Tester\Assert;
 
 /**

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\GenericException;
+namespace Contributte\JsonRPC\GenericException;
 
 abstract class GenericException extends \Exception
 {

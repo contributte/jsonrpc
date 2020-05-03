@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC;
+namespace Contributte\JsonRPC;
 
-use Gamee\JsonRPC\Exception\MissingSchemaException;
-use Gamee\JsonRPC\Exception\SchemaValidatorException;
+use Contributte\JsonRPC\Exception\MissingSchemaException;
+use Contributte\JsonRPC\Exception\SchemaValidatorException;
 
 interface ISchemaProvider
 {

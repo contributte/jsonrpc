@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Cache\Exception;
+namespace Contributte\JsonRPC\Cache\Exception;
 
 final class NotImplementedException extends \LogicException
 {

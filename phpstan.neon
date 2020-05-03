@@ -3,4 +3,4 @@ includes:
 
 parameters:
 	ignoreErrors:
-		- '/Method Gamee\\JsonRPC\\Request\\RequestCollection::offsetGet\(\) has parameter \$object with no typehint specified\./'
+		- '/Method Contributte\\JsonRPC\\Request\\RequestCollection::offsetGet\(\) has parameter \$object with no typehint specified\./'

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Cache;
+namespace Contributte\JsonRPC\Cache;
 
-use Gamee\JsonRPC\Cache\Exception\InvalidKeyException;
-use Gamee\JsonRPC\Cache\Exception\NotImplementedException;
-use Gamee\JsonRPC\Cache\Key\JsonSchemaMemberKey;
+use Contributte\JsonRPC\Cache\Exception\InvalidKeyException;
+use Contributte\JsonRPC\Cache\Exception\NotImplementedException;
+use Contributte\JsonRPC\Cache\Key\JsonSchemaMemberKey;
 use Predis\Client;
 use Psr\Cache\CacheItemInterface;
 use Psr\Cache\CacheItemPoolInterface;

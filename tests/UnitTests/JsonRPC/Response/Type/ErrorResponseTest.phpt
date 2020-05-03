@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\UnitTests\JsonRPC\Response\Type;
+namespace Contributte\JsonRPC\UnitTests\JsonRPC\Response\Type;
 
-use Gamee\JsonRPC\GenericException\InvalidParamsException;
-use Gamee\JsonRPC\Response\Enum\GenericCodes;
-use Gamee\JsonRPC\Response\Type\ErrorResponse;
+use Contributte\JsonRPC\GenericException\InvalidParamsException;
+use Contributte\JsonRPC\Response\Enum\GenericCodes;
+use Contributte\JsonRPC\Response\Type\ErrorResponse;
 use Tester\Assert;
 use Tester\TestCase;
 

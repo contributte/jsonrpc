@@ -1,9 +1,9 @@
-[![Latest Stable Version](https://poser.pugx.org/gamee/php-jsonrpc/v/stable)](https://packagist.org/packages/gamee/php-jsonrpc)
-[![License](https://poser.pugx.org/gamee/php-jsonrpc/license)](https://packagist.org/packages/gamee/php-jsonrpc)
-[![Total Downloads](https://poser.pugx.org/gamee/php-jsonrpc/downloads)](https://packagist.org/packages/gamee/php-jsonrpc)
-[![Build Status](https://travis-ci.org/gameeapp/php-jsonrpc.svg?branch=master)](https://travis-ci.org/gameeapp/php-jsonrpc)
+[![Latest Stable Version](https://poser.pugx.org/contributte/jsonrpc/v/stable)](https://packagist.org/packages/contributte/jsonrpc)
+[![License](https://poser.pugx.org/contributte/jsonrpc/license)](https://packagist.org/packages/contributte/jsonrpc)
+[![Total Downloads](https://poser.pugx.org/contributte/jsonrpc/downloads)](https://packagist.org/packages/contributte/jsonrpc)
+[![Build Status](https://travis-ci.org/contributte/jsonrpc.svg?branch=master)](https://travis-ci.org/contributte/jsonrpc)
 
-# php-jsonrpc
+# jsonrpc
 JSON-RPC toolset build on top of psr-7 (guzzlehttp), league/json-guard, league/json-reference and league/flysystem
 
 Common classes used for JSON-RPC APIs.
@@ -13,7 +13,7 @@ Common classes used for JSON-RPC APIs.
 ### Composer:
 
 ```json
-composer require gamee/php-jsonrpc
+composer require contributte/jsonrpc
 ```
 
 ## Configuration
@@ -22,7 +22,7 @@ composer require gamee/php-jsonrpc
 
 ```
 extensions:
-	jsonRPCExtension: Gamee\JsonRPC\DI\JsonRPCExtension
+	jsonRPCExtension: Contributte\JsonRPC\DI\JsonRPCExtension
 
 jsonRPCExtension:
 	methodsMapping:

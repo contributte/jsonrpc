@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC;
+namespace Contributte\JsonRPC;
 
-use Gamee\JsonRPC\Cache\Key\JsonSchemaMemberKey;
-use Gamee\JsonRPC\Cache\SchemaCacheItem;
-use Gamee\JsonRPC\Exception\MissingSchemaException;
-use Gamee\JsonRPC\Exception\SchemaValidatorException;
+use Contributte\JsonRPC\Cache\Key\JsonSchemaMemberKey;
+use Contributte\JsonRPC\Cache\SchemaCacheItem;
+use Contributte\JsonRPC\Exception\MissingSchemaException;
+use Contributte\JsonRPC\Exception\SchemaValidatorException;
 use League\Flysystem\FileNotFoundException;
 use League\Flysystem\Filesystem;
 use Nette\Utils\Json;

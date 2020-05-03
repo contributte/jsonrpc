@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Command\Exception;
+namespace Contributte\JsonRPC\Command\Exception;
 
 class CommandNotFoundException extends \InvalidArgumentException
 {

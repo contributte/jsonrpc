@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\UnitTests\JsonRPC\Response;
+namespace Contributte\JsonRPC\UnitTests\JsonRPC\Response;
 
 use Damejidlo\DateTimeFactory\DateTimeImmutableFactory;
-use Gamee\JsonRPC\Request\IRequest;
-use Gamee\JsonRPC\Request\RequestCollection;
-use Gamee\JsonRPC\Request\Type\ValidFormatRequest;
-use Gamee\JsonRPC\Response\Enum\GenericCodes;
-use Gamee\JsonRPC\Response\IResponse;
-use Gamee\JsonRPC\Response\IResponseDataBuilder;
-use Gamee\JsonRPC\Response\ResponseDataBuilder;
-use Gamee\JsonRPC\Response\Type\SuccessResponse;
+use Contributte\JsonRPC\Request\IRequest;
+use Contributte\JsonRPC\Request\RequestCollection;
+use Contributte\JsonRPC\Request\Type\ValidFormatRequest;
+use Contributte\JsonRPC\Response\Enum\GenericCodes;
+use Contributte\JsonRPC\Response\IResponse;
+use Contributte\JsonRPC\Response\IResponseDataBuilder;
+use Contributte\JsonRPC\Response\ResponseDataBuilder;
+use Contributte\JsonRPC\Response\Type\SuccessResponse;
 use Mockery;
 use Tester\Assert;
 use Tester\TestCase;

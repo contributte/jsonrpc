@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Request;
+namespace Contributte\JsonRPC\Request;
 
-use Gamee\JsonRPC\Response\IResponse;
+use Contributte\JsonRPC\Response\IResponse;
 
 final class RequestCollection extends \SplObjectStorage
 {

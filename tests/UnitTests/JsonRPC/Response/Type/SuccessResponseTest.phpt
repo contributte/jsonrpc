@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\UnitTests\JsonRPC\Response\Type;
+namespace Contributte\JsonRPC\UnitTests\JsonRPC\Response\Type;
 
-use Gamee\JsonRPC\Response\Type\SuccessResponse;
+use Contributte\JsonRPC\Response\Type\SuccessResponse;
 use Tester\Assert;
 use Tester\TestCase;
 

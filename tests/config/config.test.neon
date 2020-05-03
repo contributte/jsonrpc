@@ -1,5 +1,5 @@
 extensions:
-	jsonRpc: Gamee\JsonRPC\DI\JsonRPCExtension
+	jsonRpc: Contributte\JsonRPC\DI\JsonRPCExtension
 
 services:
 	- Predis\Client(%redisUri%)

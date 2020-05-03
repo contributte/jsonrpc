@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\UnitTests\JsonRPC;
+namespace Contributte\JsonRPC\UnitTests\JsonRPC;
 
 require_once __DIR__ . '/../../bootstrap.php';
 
-use Gamee\JsonRPC\Exception\SchemaValidatorException;
-use Gamee\JsonRPC\ISchemaProvider;
-use Gamee\JsonRPC\SchemeValidator;
+use Contributte\JsonRPC\Exception\SchemaValidatorException;
+use Contributte\JsonRPC\ISchemaProvider;
+use Contributte\JsonRPC\SchemeValidator;
 use Mockery;
 use Mockery\MockInterface;
 use Nette\Utils\Json;

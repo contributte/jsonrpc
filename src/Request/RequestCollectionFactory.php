@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Request;
+namespace Contributte\JsonRPC\Request;
 
-use Gamee\JsonRPC\Request\Exception\RequestCollectionCreationException;
-use Gamee\JsonRPC\Request\Type\InvalidFormatRequest;
-use Gamee\JsonRPC\Request\Type\ValidFormatRequest;
+use Contributte\JsonRPC\Request\Exception\RequestCollectionCreationException;
+use Contributte\JsonRPC\Request\Type\InvalidFormatRequest;
+use Contributte\JsonRPC\Request\Type\ValidFormatRequest;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
 

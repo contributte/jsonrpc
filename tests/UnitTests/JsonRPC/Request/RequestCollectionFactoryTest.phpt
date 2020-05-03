@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\UnitTests\JsonRPC\Request;
+namespace Contributte\JsonRPC\UnitTests\JsonRPC\Request;
 
-use Gamee\JsonRPC\Request\RequestCollectionFactory;
-use Gamee\JsonRPC\Request\Type\InvalidFormatRequest;
-use Gamee\JsonRPC\Request\Type\ValidFormatRequest;
+use Contributte\JsonRPC\Request\RequestCollectionFactory;
+use Contributte\JsonRPC\Request\Type\InvalidFormatRequest;
+use Contributte\JsonRPC\Request\Type\ValidFormatRequest;
 use Tester\Assert;
 use Tester\TestCase;
 

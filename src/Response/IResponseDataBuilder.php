@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Response;
+namespace Contributte\JsonRPC\Response;
 
-use Gamee\JsonRPC\Request\RequestCollection;
+use Contributte\JsonRPC\Request\RequestCollection;
 
 interface IResponseDataBuilder
 {

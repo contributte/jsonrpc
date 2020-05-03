@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Response\Type;
+namespace Contributte\JsonRPC\Response\Type;
 
-use Gamee\JsonRPC\Response\IResponse;
+use Contributte\JsonRPC\Response\IResponse;
 
 final class SuccessResponse implements IResponse
 {

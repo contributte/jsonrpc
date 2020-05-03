@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\GenericException;
+namespace Contributte\JsonRPC\GenericException;
 
-use Gamee\JsonRPC\Response\Enum\GenericCodes;
+use Contributte\JsonRPC\Response\Enum\GenericCodes;
 
 /**
  * The method does not exist / is not available.

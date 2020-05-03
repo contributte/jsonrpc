@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Tests;
+namespace Contributte\JsonRPC\Tests;
 
 use Tester\Environment;
 

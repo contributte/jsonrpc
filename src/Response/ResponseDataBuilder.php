@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Response;
+namespace Contributte\JsonRPC\Response;
 
 use Damejidlo\DateTimeFactory\DateTimeImmutableFactory;
-use Gamee\JsonRPC\Request\IRequest;
-use Gamee\JsonRPC\Request\RequestCollection;
-use Gamee\JsonRPC\Response\Enum\GenericCodes;
-use Gamee\JsonRPC\Response\Type\ErrorResponse;
-use Gamee\JsonRPC\Response\Type\SuccessResponse;
+use Contributte\JsonRPC\Request\IRequest;
+use Contributte\JsonRPC\Request\RequestCollection;
+use Contributte\JsonRPC\Response\Enum\GenericCodes;
+use Contributte\JsonRPC\Response\Type\ErrorResponse;
+use Contributte\JsonRPC\Response\Type\SuccessResponse;
 use InvalidArgumentException;
 
 class ResponseDataBuilder implements IResponseDataBuilder

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\UnitTests\JsonRPC\GenericException;
+namespace Contributte\JsonRPC\UnitTests\JsonRPC\GenericException;
 
-use Gamee\JsonRPC\GenericException\InvalidParamsException;
-use Gamee\JsonRPC\GenericException\InvalidRequestException;
-use Gamee\JsonRPC\GenericException\MethodNotFoundException;
-use Gamee\JsonRPC\GenericException\ParseErrorException;
-use Gamee\JsonRPC\GenericException\ServerErrorException;
-use Gamee\JsonRPC\Response\Enum\GenericCodes;
+use Contributte\JsonRPC\GenericException\InvalidParamsException;
+use Contributte\JsonRPC\GenericException\InvalidRequestException;
+use Contributte\JsonRPC\GenericException\MethodNotFoundException;
+use Contributte\JsonRPC\GenericException\ParseErrorException;
+use Contributte\JsonRPC\GenericException\ServerErrorException;
+use Contributte\JsonRPC\Response\Enum\GenericCodes;
 use Tester\Assert;
 use Tester\TestCase;
 

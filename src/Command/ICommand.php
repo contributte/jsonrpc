@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Command;
+namespace Contributte\JsonRPC\Command;
 
-use Gamee\JsonRPC\Response\IResponse;
+use Contributte\JsonRPC\Response\IResponse;
 
 interface ICommand
 {

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\DI;
+namespace Contributte\JsonRPC\DI;
 
-use Gamee\JsonRPC\Cache\RedisPool;
-use Gamee\JsonRPC\Command\CommandProvider;
-use Gamee\JsonRPC\Http\RequestFactory;
-use Gamee\JsonRPC\Request\RequestCollectionFactory;
-use Gamee\JsonRPC\Request\RequestProcessor;
-use Gamee\JsonRPC\Response\ResponseDataBuilder;
-use Gamee\JsonRPC\SchemaProvider;
-use Gamee\JsonRPC\SchemeValidator;
+use Contributte\JsonRPC\Cache\RedisPool;
+use Contributte\JsonRPC\Command\CommandProvider;
+use Contributte\JsonRPC\Http\RequestFactory;
+use Contributte\JsonRPC\Request\RequestCollectionFactory;
+use Contributte\JsonRPC\Request\RequestProcessor;
+use Contributte\JsonRPC\Response\ResponseDataBuilder;
+use Contributte\JsonRPC\SchemaProvider;
+use Contributte\JsonRPC\SchemeValidator;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use Nette\DI\CompilerExtension;

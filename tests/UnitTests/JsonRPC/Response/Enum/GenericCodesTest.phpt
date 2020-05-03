@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\UnitTests\JsonRPC\Response\Enum;
+namespace Contributte\JsonRPC\UnitTests\JsonRPC\Response\Enum;
 
-use Gamee\JsonRPC\Response\Enum\GenericCodes;
+use Contributte\JsonRPC\Response\Enum\GenericCodes;
 use Tester\Assert;
 use Tester\TestCase;
 

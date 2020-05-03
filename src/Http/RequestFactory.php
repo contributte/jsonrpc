@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Http;
+namespace Contributte\JsonRPC\Http;
 
-use Gamee\JsonRPC\Exception\MissingHttpMethod;
+use Contributte\JsonRPC\Exception\MissingHttpMethod;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\RequestInterface;
 

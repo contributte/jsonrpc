@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Request;
+namespace Contributte\JsonRPC\Request;
 
-use Gamee\JsonRPC\GenericException\IJsonRPCAwareException;
-use Gamee\JsonRPC\Request\Type\ValidFormatRequest;
-use Gamee\JsonRPC\Response\IResponse;
+use Contributte\JsonRPC\GenericException\IJsonRPCAwareException;
+use Contributte\JsonRPC\Request\Type\ValidFormatRequest;
+use Contributte\JsonRPC\Response\IResponse;
 
 interface IRequestProcessor
 {

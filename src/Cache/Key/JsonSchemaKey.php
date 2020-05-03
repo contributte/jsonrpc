@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Cache\Key;
+namespace Contributte\JsonRPC\Cache\Key;
 
 class JsonSchemaKey
 {

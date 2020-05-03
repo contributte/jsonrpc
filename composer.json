@@ -1,22 +1,22 @@
 {
-	"name": "gamee/php-jsonrpc",
+	"name": "contributte/jsonrpc",
 	"description": "JSON-RPC toolset build on top of psr-7 (guzzlehttp), league/json-guard, league/json-reference, league/flysystem and nette/di",
 	"type": "library",
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Gamee",
-			"email": "helloo@gameeapp.com"
+			"name": "Pavel Janda",
+			"email": "me@paveljanda.com"
 		}
 	],	
 	"autoload": {
 		"psr-4": {
-			"Gamee\\JsonRPC\\": "src/"
+			"Contributte\\JsonRPC\\": "src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Gamee\\JsonRPC\\Tests\\": "tests/"
+			"Contributte\\JsonRPC\\Tests\\": "tests/"
 		}
 	},
 	"require": {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC;
+namespace Contributte\JsonRPC;
 
-use Gamee\JsonRPC\Exception\SchemaValidatorException;
+use Contributte\JsonRPC\Exception\SchemaValidatorException;
 use JsonSchema\Exception\InvalidArgumentException;
 use JsonSchema\Validator;
 

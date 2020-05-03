@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Command;
+namespace Contributte\JsonRPC\Command;
 
 interface ICommandDTO
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Response\Type;
+namespace Contributte\JsonRPC\Response\Type;
 
-use Gamee\JsonRPC\GenericException\IJsonRPCAwareException;
-use Gamee\JsonRPC\Response\IResponse;
+use Contributte\JsonRPC\GenericException\IJsonRPCAwareException;
+use Contributte\JsonRPC\Response\IResponse;
 
 final class ErrorResponse implements IResponse
 {

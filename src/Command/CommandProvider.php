@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Command;
+namespace Contributte\JsonRPC\Command;
 
-use Gamee\JsonRPC\Command\Exception\CommandNotFoundException;
+use Contributte\JsonRPC\Command\Exception\CommandNotFoundException;
 use Nette\DI\Container;
 use Nette\DI\MissingServiceException;
 

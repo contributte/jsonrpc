@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Request;
+namespace Contributte\JsonRPC\Request;
 
-use Gamee\JsonRPC\Command\CommandProvider;
-use Gamee\JsonRPC\Command\Exception\CommandNotFoundException;
-use Gamee\JsonRPC\Command\ICommand;
-use Gamee\JsonRPC\Command\ICommandDTO;
-use Gamee\JsonRPC\Exception\MissingSchemaException;
-use Gamee\JsonRPC\Exception\SchemaValidatorException;
-use Gamee\JsonRPC\GenericException\IJsonRPCAwareException;
-use Gamee\JsonRPC\GenericException\InvalidParamsException;
-use Gamee\JsonRPC\GenericException\MethodNotFoundException;
-use Gamee\JsonRPC\GenericException\ServerErrorException;
-use Gamee\JsonRPC\Request\Type\ValidFormatRequest;
-use Gamee\JsonRPC\Response\IResponse;
-use Gamee\JsonRPC\SchemeValidator;
+use Contributte\JsonRPC\Command\CommandProvider;
+use Contributte\JsonRPC\Command\Exception\CommandNotFoundException;
+use Contributte\JsonRPC\Command\ICommand;
+use Contributte\JsonRPC\Command\ICommandDTO;
+use Contributte\JsonRPC\Exception\MissingSchemaException;
+use Contributte\JsonRPC\Exception\SchemaValidatorException;
+use Contributte\JsonRPC\GenericException\IJsonRPCAwareException;
+use Contributte\JsonRPC\GenericException\InvalidParamsException;
+use Contributte\JsonRPC\GenericException\MethodNotFoundException;
+use Contributte\JsonRPC\GenericException\ServerErrorException;
+use Contributte\JsonRPC\Request\Type\ValidFormatRequest;
+use Contributte\JsonRPC\Response\IResponse;
+use Contributte\JsonRPC\SchemeValidator;
 
 class RequestProcessor implements IRequestProcessor
 {

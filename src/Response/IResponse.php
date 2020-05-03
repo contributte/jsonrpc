@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Response;
+namespace Contributte\JsonRPC\Response;
 
 interface IResponse
 {

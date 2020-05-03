@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Cache;
+namespace Contributte\JsonRPC\Cache;
 
-use Gamee\JsonRPC\Cache\Key\JsonSchemaMemberKey;
+use Contributte\JsonRPC\Cache\Key\JsonSchemaMemberKey;
 use Psr\Cache\CacheItemInterface;
 
 final class SchemaCacheItem implements CacheItemInterface

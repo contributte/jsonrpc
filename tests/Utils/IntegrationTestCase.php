@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gamee\JsonRPC\Tests\Utils;
+namespace Contributte\JsonRPC\Tests\Utils;
 
 use Nette\Configurator;
 use Nette\DI\Container;
