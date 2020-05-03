@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Contributte\JsonRPC\Response;
 
-use Damejidlo\DateTimeFactory\DateTimeImmutableFactory;
 use Contributte\JsonRPC\Request\IRequest;
 use Contributte\JsonRPC\Request\RequestCollection;
 use Contributte\JsonRPC\Response\Enum\GenericCodes;
 use Contributte\JsonRPC\Response\Type\ErrorResponse;
 use Contributte\JsonRPC\Response\Type\SuccessResponse;
+use Damejidlo\DateTimeFactory\DateTimeImmutableFactory;
 use InvalidArgumentException;
 
 class ResponseDataBuilder implements IResponseDataBuilder

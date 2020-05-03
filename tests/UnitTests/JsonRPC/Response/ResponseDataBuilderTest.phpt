@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Contributte\JsonRPC\UnitTests\JsonRPC\Response;
 
-use Damejidlo\DateTimeFactory\DateTimeImmutableFactory;
 use Contributte\JsonRPC\Request\IRequest;
 use Contributte\JsonRPC\Request\RequestCollection;
 use Contributte\JsonRPC\Request\Type\ValidFormatRequest;
@@ -13,6 +12,7 @@ use Contributte\JsonRPC\Response\IResponse;
 use Contributte\JsonRPC\Response\IResponseDataBuilder;
 use Contributte\JsonRPC\Response\ResponseDataBuilder;
 use Contributte\JsonRPC\Response\Type\SuccessResponse;
+use Damejidlo\DateTimeFactory\DateTimeImmutableFactory;
 use Mockery;
 use Tester\Assert;
 use Tester\TestCase;
