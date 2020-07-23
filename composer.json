@@ -27,8 +27,7 @@
 		"psr/http-message": "^1.0",
 		"justinrainbow/json-schema": "^5.2",
 		"league/flysystem": "^1.0",
-		"psr/cache": "^1.0",
-		"damejidlo/datetime-factory": "^1.1"
+		"psr/cache": "^1.0"
 	},
 	"require-dev": {
 		"nette/tester": "^2.3",

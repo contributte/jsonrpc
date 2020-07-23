@@ -9,24 +9,10 @@ use Contributte\JsonRPC\Request\RequestCollection;
 use Contributte\JsonRPC\Response\Enum\GenericCodes;
 use Contributte\JsonRPC\Response\Type\ErrorResponse;
 use Contributte\JsonRPC\Response\Type\SuccessResponse;
-use Damejidlo\DateTimeFactory\DateTimeImmutableFactory;
 use InvalidArgumentException;
 
 class ResponseDataBuilder implements IResponseDataBuilder
 {
-
-	private DateTimeImmutableFactory $dateTimeImmutableFactory;
-
-
-	public function __construct(?DateTimeImmutableFactory $dateTimeImmutableFactory = null)
-	{
-		if ($dateTimeImmutableFactory === null) {
-			$dateTimeImmutableFactory = new DateTimeImmutableFactory;
-		}
-
-		$this->dateTimeImmutableFactory = $dateTimeImmutableFactory;
-	}
-
 
 	public function buildResponseBadge(RequestCollection $requestCollection): array
 	{
@@ -105,7 +91,7 @@ class ResponseDataBuilder implements IResponseDataBuilder
 				],
 			],
 			'id' => $id,
-			'time' => $this->dateTimeImmutableFactory->getNow()->format(DATE_ATOM),
+			'time' => (new \DateTimeImmutable)->format(DATE_ATOM),
 		];
 	}
 
@@ -121,7 +107,7 @@ class ResponseDataBuilder implements IResponseDataBuilder
 				'jsonrpc' => '2.0',
 				'result' => $response->getResult() ?? new \stdClass,
 				'id' => $request->getId(),
-				'time' => $this->dateTimeImmutableFactory->getNow()->format(DATE_ATOM),
+				'time' => (new \DateTimeImmutable)->format(DATE_ATOM),
 			];
 		}
 
