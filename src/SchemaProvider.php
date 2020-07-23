@@ -18,9 +18,7 @@ final class SchemaProvider implements ISchemaProvider
 {
 
 	private Filesystem $schemaFileSystem;
-
 	private string $projectName;
-
 	private CacheItemPoolInterface $cacheItemPool;
 
 

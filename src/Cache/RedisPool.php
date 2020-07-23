@@ -15,7 +15,6 @@ final class RedisPool implements CacheItemPoolInterface
 {
 
 	private int $ttlInSeconds;
-
 	private Client $predisClient;
 
 	/**

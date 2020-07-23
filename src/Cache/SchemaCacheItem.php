@@ -11,13 +11,9 @@ final class SchemaCacheItem implements CacheItemInterface
 {
 
 	private JsonSchemaMemberKey $key;
-
 	private string $value;
-
 	private \DateTimeInterface $expiresAt;
-
 	private bool $isHit;
-
 	private bool $exists;
 
 

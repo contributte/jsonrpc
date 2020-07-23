@@ -10,9 +10,7 @@ final class ValidFormatRequest implements IRequest
 {
 
 	private string $method;
-
 	private \stdClass $params;
-
 	private ?string $id = null;
 
 

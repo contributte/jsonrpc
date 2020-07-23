@@ -22,7 +22,6 @@ class RequestProcessor implements IRequestProcessor
 {
 
 	private CommandProvider $commandProvider;
-
 	private SchemeValidator $schemeValidator;
 
 

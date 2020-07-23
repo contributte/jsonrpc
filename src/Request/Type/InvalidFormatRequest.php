@@ -10,7 +10,6 @@ final class InvalidFormatRequest implements IRequest
 {
 
 	private string $message;
-
 	private ?string $id = null;
 
 

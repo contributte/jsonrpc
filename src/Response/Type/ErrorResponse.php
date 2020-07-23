@@ -11,9 +11,7 @@ final class ErrorResponse implements IResponse
 {
 
 	private int $code;
-
 	private string $generalMessage;
-
 	private string $description;
 
 
