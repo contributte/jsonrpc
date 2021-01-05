@@ -40,5 +40,10 @@
 		"phpstan": "vendor/bin/phpstan analyse src tests -c phpstan.neon --level 7",
 		"phpcs": "vendor/bin/phpcs --standard=vendor/gamee/php-code-checker-rules/ruleset.xml --extensions=php,phpt --tab-width=4 --ignore=temp -sp src tests",
 		"phpcsfix": "vendor/bin/phpcbf --standard=vendor/gamee/php-code-checker-rules/ruleset.xml --extensions=php,phpt --tab-width=4 --ignore=temp -sp src tests"
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "6.0.x-dev"
+		}
 	}
 }
