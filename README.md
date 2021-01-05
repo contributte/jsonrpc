@@ -24,6 +24,7 @@
 
 | State  | Version      | Branch   | Nette  | PHP     |
 |--------|--------------|----------|--------|---------|
+| dev    | `^6.0.0`     | `master` | `3.0+` | `^7.3`  |
 | stable | `^5.0.0`     | `master` | `3.0+` | `^7.3`  |
 
 ## Maintainers
