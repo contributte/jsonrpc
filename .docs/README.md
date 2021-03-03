@@ -12,7 +12,7 @@ Common classes used for JSON-RPC APIs.
 ## Installation
 
 ```
-composer require contributte/jsonrpc
+$ composer require contributte/jsonrpc
 ```
 
 ## Configuration
