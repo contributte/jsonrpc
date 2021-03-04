@@ -11,7 +11,7 @@ Common classes used for JSON-RPC APIs.
 
 ## Installation
 
-```
+```bash
 composer require contributte/jsonrpc
 ```
 
