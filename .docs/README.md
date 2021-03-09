@@ -19,16 +19,16 @@ composer require contributte/jsonrpc
 
 ### config.neon
 
-```
+```yaml
 extensions:
-	jsonRPCExtension: Contributte\JsonRPC\DI\JsonRPCExtension
+    jsonRPCExtension: Contributte\JsonRPC\DI\JsonRPCExtension
 
 jsonRPCExtension:
-	methodsMapping:
-		user.get: App\Command\Type\User\GetUserCommand
-		user.resetPassword: App\Command\Type\User\ResetPasswordCommand
-		# ...
-	jsonSchemaFilesDir: %appDir%/../json-schema
+    methodsMapping:
+        user.get: App\Command\Type\User\GetUserCommand
+        user.resetPassword: App\Command\Type\User\ResetPasswordCommand
+        # ...
+    jsonSchemaFilesDir: %appDir%/../json-schema
 ```
 
 ## Maintainers
