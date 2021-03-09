@@ -19,7 +19,7 @@ composer require contributte/jsonrpc
 
 ### config.neon
 
-```
+```yaml
 extensions:
 	jsonRPCExtension: Contributte\JsonRPC\DI\JsonRPCExtension
 
