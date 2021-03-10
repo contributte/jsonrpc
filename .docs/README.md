@@ -19,39 +19,39 @@ composer require contributte/jsonrpc
 
 ### config.neon
 
-```yaml
+```neon
 extensions:
-    jsonRPCExtension: Contributte\JsonRPC\DI\JsonRPCExtension
+	jsonRPCExtension: Contributte\JsonRPC\DI\JsonRPCExtension
 
 jsonRPCExtension:
-    methodsMapping:
-        user.get: App\Command\Type\User\GetUserCommand
-        user.resetPassword: App\Command\Type\User\ResetPasswordCommand
-        # ...
-    jsonSchemaFilesDir: %appDir%/../json-schema
+	methodsMapping:
+		user.get: App\Command\Type\User\GetUserCommand
+		user.resetPassword: App\Command\Type\User\ResetPasswordCommand
+		# ...
+	jsonSchemaFilesDir: %appDir%/../json-schema
 ```
 
 ## Maintainers
 
 <table>
-	<tbody>
-		<tr>
-			<td align="center">
-				<a href="https://github.com/paveljanda">
-						<img width="150" height="150" src="https://avatars0.githubusercontent.com/u/1488874?s=400&v=4">
-				</a>
-				</br>
-				<a href="https://github.com/paveljanda">Pavel Janda</a>
-			</td>
-			<td align="center">
-				<a href="https://github.com/gameeapp">
-						<img width="150" height="150" src="https://avatars3.githubusercontent.com/u/13903740?s=200&v=4">
-				</a>
-				</br>
-				<a href="https://github.com/gameeapp">Gameeapp</a>
-			</td>
-		</tr>
-	</tbody>
+  <tbody>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/paveljanda">
+            <img width="150" height="150" src="https://avatars0.githubusercontent.com/u/1488874?s=400&v=4">
+        </a>
+        </br>
+        <a href="https://github.com/paveljanda">Pavel Janda</a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/gameeapp">
+            <img width="150" height="150" src="https://avatars3.githubusercontent.com/u/13903740?s=200&v=4">
+        </a>
+        </br>
+        <a href="https://github.com/gameeapp">Gameeapp</a>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 -----
