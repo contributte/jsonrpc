@@ -1,6 +1,2 @@
 includes:
 	- vendor/gamee/php-code-checker-rules/phpstan.neon
-
-parameters:
-	ignoreErrors:
-		- '/Method Contributte\\JsonRPC\\Request\\RequestCollection::offsetGet\(\) has parameter \$object with no typehint specified\./'

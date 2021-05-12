@@ -15,6 +15,16 @@ final class ErrorResponse implements IResponse
 	private string $description;
 
 
+	public static function fromJsonRPCAwareException(IJsonRPCAwareException $e): self
+	{
+		return new static(
+			$e->getErrorCode(),
+			$e->getGeneralMessage(),
+			$e->getMessage()
+		);
+	}
+
+
 	public function __construct(
 		int $code,
 		string $generalMessage,
@@ -23,16 +33,6 @@ final class ErrorResponse implements IResponse
 		$this->code = $code;
 		$this->generalMessage = $generalMessage;
 		$this->description = $description ?? $generalMessage;
-	}
-
-
-	public static function fromJsonRPCAwareException(IJsonRPCAwareException $e): self
-	{
-		return new static(
-			$e->getErrorCode(),
-			$e->getGeneralMessage(),
-			$e->getMessage()
-		);
 	}
 
 
