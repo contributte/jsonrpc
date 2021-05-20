@@ -92,7 +92,7 @@ class RequestProcessor implements IRequestProcessor
 			throw new ServerErrorException("Class $commandDTOClass does not exist");
 		}
 
-		if (!in_array(ICommandDTO::class, class_implements($commandDTOClass), true)) {
+		if (!in_array(ICommandDTO::class, (array) class_implements($commandDTOClass), true)) {
 			throw new ServerErrorException("$commandDTOClass does not implement " . ICommandDTO::class);
 		}
 
