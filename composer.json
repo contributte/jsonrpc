@@ -8,7 +8,7 @@
 			"name": "Pavel Janda",
 			"email": "me@paveljanda.com"
 		}
-	],	
+	],
 	"autoload": {
 		"psr-4": {
 			"Contributte\\JsonRPC\\": "src/"
@@ -23,7 +23,7 @@
 		"nette/di": "^3.0",
 		"nette/utils": "^3.0",
 		"nette/bootstrap": "^3.0",
-		"guzzlehttp/guzzle": "^6.3",
+		"guzzlehttp/guzzle": ">=6.3",
 		"psr/http-message": "^1.0",
 		"justinrainbow/json-schema": "^5.2",
 		"league/flysystem": "^1.0",
