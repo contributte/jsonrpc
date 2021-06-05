@@ -1,11 +1,11 @@
 {
-	"jsonrpc": "2.0",
-	"method": "feed.getAll",
-	"params": {
-		"pagination": {
-			"offset": 1000,
-			"limit": 100
-		}
-	},
-	"id": "asdfghjklzxcvbnmqwertyuiop"
+  "jsonrpc": "2.0",
+  "method": "feed.getAll",
+  "params": {
+    "pagination": {
+      "offset": 1000,
+      "limit": 100
+    }
+  },
+  "id": "asdfghjklzxcvbnmqwertyuiop"
 }

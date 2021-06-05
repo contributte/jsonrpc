@@ -1,43 +1,43 @@
 {
-	"name": "contributte/jsonrpc",
-	"description": "JSON-RPC toolset build on top of psr-7 (guzzlehttp), league/json-guard, league/json-reference, league/flysystem and nette/di",
-	"type": "library",
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Pavel Janda",
-			"email": "me@paveljanda.com"
-		}
-	],
-	"autoload": {
-		"psr-4": {
-			"Contributte\\JsonRPC\\": "src/"
-		}
-	},
-	"autoload-dev": {
-		"psr-4": {
-			"Contributte\\JsonRPC\\Tests\\": "tests/"
-		}
-	},
-	"require": {
-		"nette/di": "^3.0",
-		"nette/utils": "^3.0",
-		"nette/bootstrap": "^3.0",
-		"guzzlehttp/guzzle": ">=6.3",
-		"psr/http-message": "^1.0",
-		"justinrainbow/json-schema": "^5.2",
-		"league/flysystem": "^1.0",
-		"psr/cache": "^1.0"
-	},
-	"require-dev": {
-		"nette/tester": "^2.3",
-		"mockery/mockery": "^1.0",
-		"predis/predis": "^1.1",
-		"gamee/php-code-checker-rules": "^2.0"
-	},
-	"extra": {
-		"branch-alias": {
-			"dev-master": "6.0.x-dev"
-		}
-	}
+  "name": "contributte/jsonrpc",
+  "description": "JSON-RPC toolset build on top of psr-7 (guzzlehttp), league/json-guard, league/json-reference, league/flysystem and nette/di",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pavel Janda",
+      "email": "me@paveljanda.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Contributte\\JsonRPC\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Contributte\\JsonRPC\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "nette/di": "^3.0",
+    "nette/utils": "^3.0",
+    "nette/bootstrap": "^3.0",
+    "guzzlehttp/guzzle": ">=6.3",
+    "psr/http-message": "^1.0",
+    "justinrainbow/json-schema": "^5.2",
+    "league/flysystem": "^1.0",
+    "psr/cache": "^1.0"
+  },
+  "require-dev": {
+    "nette/tester": "^2.3",
+    "mockery/mockery": "^1.0",
+    "predis/predis": "^1.1",
+    "gamee/php-code-checker-rules": "^2.0"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "6.0.x-dev"
+    }
+  }
 }
