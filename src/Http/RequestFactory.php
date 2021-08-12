@@ -65,7 +65,7 @@ final class RequestFactory
 		if (function_exists('apache_request_headers')) {
 			$headers = apache_request_headers();
 
-			if ($headers === false) {
+			if ($headers === false) { /** @phpstan-ignore-line */
 				$headers = [];
 			}
 		} else {
