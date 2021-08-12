@@ -78,7 +78,7 @@ final class RequestFactory
 					continue;
 				}
 
-				$headers[strtr($key, '_', '-')] = $value;
+				$headers[str_replace('_', '-', $key)] = $value;
 			}
 		}
 
