@@ -1,6 +1,2 @@
 includes:
 	- vendor/gamee/php-code-checker-rules/phpstan.neon
-
-parameters:
-	ignoreErrors:
-		- '/Strict comparison using === between array and false will always evaluate to false\./'
