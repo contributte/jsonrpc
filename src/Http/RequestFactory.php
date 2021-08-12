@@ -63,9 +63,9 @@ final class RequestFactory
 	private function getHttpHeaders(): array
 	{
 		if (function_exists('apache_request_headers')) {
-			$headers = apache_request_headers();
-
-			if ($headers === false) { /** @phpstan-ignore-line */
+			try {
+				$headers = apache_request_headers();
+			} catch (\Throwable $e) {
 				$headers = [];
 			}
 		} else {
