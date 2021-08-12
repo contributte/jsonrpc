@@ -47,10 +47,6 @@ This package is currently maintaining by these authors.
   <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/1488874?v=3&s=80">
 </a>
 
-<a href="https://github.com/gameeapp">
-  <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/13903740?v=3&s=80">
-</a>
-
 -----
 
 Consider to [support](https://contributte.org/partners.html) **contributte** development team.
