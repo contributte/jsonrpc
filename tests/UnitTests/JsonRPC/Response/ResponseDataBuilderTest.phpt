@@ -9,10 +9,8 @@ use Contributte\JsonRPC\Request\RequestCollection;
 use Contributte\JsonRPC\Request\Type\ValidFormatRequest;
 use Contributte\JsonRPC\Response\Enum\GenericCodes;
 use Contributte\JsonRPC\Response\IResponse;
-use Contributte\JsonRPC\Response\IResponseDataBuilder;
 use Contributte\JsonRPC\Response\ResponseDataBuilder;
 use Contributte\JsonRPC\Response\Type\SuccessResponse;
-use Damejidlo\DateTimeFactory\DateTimeImmutableFactory;
 use Mockery;
 use Tester\Assert;
 use Tester\TestCase;
@@ -25,21 +23,12 @@ require_once __DIR__ . '/../../../bootstrap.php';
 class ResponseDataBuilderTest extends TestCase
 {
 
-	private IResponseDataBuilder $responseDataBuilder;
+	private ResponseDataBuilder $responseDataBuilder;
 
 
 	public function setUp(): void
 	{
-		$dateTimeImmutableFactory = new class() extends DateTimeImmutableFactory
-		{
-
-			public function getNow(): \DateTimeImmutable
-			{
-				return \DateTimeImmutable::createFromFormat(DATE_ATOM, '2018-03-24T11:36:19+01:00');
-			}
-		};
-
-		$this->responseDataBuilder = new ResponseDataBuilder($dateTimeImmutableFactory);
+		$this->responseDataBuilder = new ResponseDataBuilder;
 	}
 
 
@@ -55,10 +44,12 @@ class ResponseDataBuilderTest extends TestCase
 				],
 			],
 			'id' => null,
-			'time' => '2018-03-24T11:36:19+01:00',
 		];
 
-		Assert::same($expected, $this->responseDataBuilder->buildParseError('Foo'));
+		$actual = $this->responseDataBuilder->buildParseError('Foo');
+		unset($actual['time']);
+
+		Assert::same($expected, $actual);
 	}
 
 
@@ -78,7 +69,6 @@ class ResponseDataBuilderTest extends TestCase
 			'jsonrpc' => '2.0',
 			'result' => new \stdClass,
 			'id' => 'iddddddddd',
-			'time' => '2018-03-24T11:36:19+01:00',
 		];
 
 		$collection = $this->createSingleRequestCollection(
@@ -91,7 +81,7 @@ class ResponseDataBuilderTest extends TestCase
 		Assert::true(isset($data['result']));
 		Assert::true($data['result'] instanceof \stdClass);
 
-		unset($data['result'], $expected['result']);
+		unset($data['result'], $data['time'], $expected['result']);
 
 		Assert::same($expected, $data);
 	}
@@ -106,10 +96,7 @@ class ResponseDataBuilderTest extends TestCase
 			'jsonrpc' => '2.0',
 			'result' => $result,
 			'id' => 'iddddddddd',
-			'time' => '2018-03-24T11:36:19+01:00',
 		];
-
-
 
 		$collection = $this->createSingleRequestCollection(
 			new ValidFormatRequest('foo', new \stdClass(), 'iddddddddd'),
@@ -117,6 +104,7 @@ class ResponseDataBuilderTest extends TestCase
 		);
 
 		$data = $this->responseDataBuilder->buildResponseBadge($collection);
+		unset($data['time']);
 
 		Assert::same($expected, $data);
 	}
