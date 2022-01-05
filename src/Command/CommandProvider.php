@@ -40,6 +40,7 @@ class CommandProvider
 			throw new CommandNotFoundException("Unknown command [$commandName]");
 		}
 
+		/** @var class-string $commandClass */
 		$commandClass = $this->commandMapping[$commandName];
 
 		try {

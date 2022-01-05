@@ -1,2 +1,2 @@
 includes:
-	- vendor/gamee/php-code-checker-rules/phpstan.neon
+	- vendor/contributte/code-rules/paveljanda/phpstan.neon
