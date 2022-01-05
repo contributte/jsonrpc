@@ -39,10 +39,7 @@ final class SchemaCacheItem implements CacheItemInterface
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public function get()
+	public function get(): mixed
 	{
 		return $this->value;
 	}
@@ -54,19 +51,13 @@ final class SchemaCacheItem implements CacheItemInterface
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public function set($value)
+	public function set(mixed $value): static
 	{
 		return new static($this->key, $value, $this->expiresAt, $this->isHit, $this->exists);
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public function expiresAt($expiration)
+	public function expiresAt(?\DateTimeInterface $expiration): static
 	{
 		if ($expiration === null) {
 			return new static($this->key, $this->value, new \DateTimeImmutable('2030-12-31'));
@@ -76,10 +67,7 @@ final class SchemaCacheItem implements CacheItemInterface
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public function expiresAfter($time)
+	public function expiresAfter(int|\DateInterval|null $time): static
 	{
 		if ($time === null) {
 			return new static($this->key, $this->value, new \DateTimeImmutable('2030-12-31'));

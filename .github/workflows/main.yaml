@@ -23,7 +23,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: [ "7.4" ]
+        php-version: [ "8.0" ]
         operating-system: [ "ubuntu-latest" ]
       fail-fast: false
 
@@ -82,7 +82,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: [ "7.4" ]
+        php-version: [ "8.0" ]
         operating-system: [ "ubuntu-latest" ]
       fail-fast: false
 
@@ -138,11 +138,11 @@ jobs:
 
     strategy:
       matrix:
-        php-version: [ "7.4", "8.0" ]
+        php-version: [ "8.0" ]
         operating-system: [ "ubuntu-latest" ]
         composer-args: [ "" ]
         include:
-          - php-version: "7.4"
+          - php-version: "8.0"
             operating-system: "ubuntu-latest"
             composer-args: "--prefer-lowest"
           - php-version: "8.0"
@@ -150,7 +150,16 @@ jobs:
             composer-args: ""
       fail-fast: false
 
-    continue-on-error: "${{ matrix.php-version == '8.0' }}"
+    services:
+      redis:
+        image: redis
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
 
     steps:
       - name: "Checkout"
@@ -207,7 +216,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: [ "7.4" ]
+        php-version: [ "8.0" ]
         operating-system: [ "ubuntu-latest" ]
       fail-fast: false
 

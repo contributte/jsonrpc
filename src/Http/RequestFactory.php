@@ -63,11 +63,7 @@ final class RequestFactory
 	private function getHttpHeaders(): array
 	{
 		if (function_exists('apache_request_headers')) {
-			try {
-				$headers = apache_request_headers();
-			} catch (\Throwable $e) {
-				$headers = [];
-			}
+			$headers = apache_request_headers();
 		} else {
 			$headers = [];
 
