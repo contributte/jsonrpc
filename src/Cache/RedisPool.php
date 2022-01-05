@@ -32,9 +32,6 @@ final class RedisPool implements CacheItemPoolInterface
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public function getItem(string $key): CacheItemInterface
 	{
 		$redisKey = $this->createKey($key);
@@ -85,9 +82,6 @@ final class RedisPool implements CacheItemPoolInterface
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public function clear(): bool
 	{
 		throw new NotImplementedException();
@@ -142,9 +136,6 @@ final class RedisPool implements CacheItemPoolInterface
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public function commit(): bool
 	{
 		foreach ($this->deferrerItems as $item) {
