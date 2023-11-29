@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Contributte\JsonRPC\UnitTests\JsonRPC\Response\Type;
+namespace Tests\Cases\Unit\Response\Type;
 
 use Contributte\JsonRPC\Response\Type\SuccessResponse;
 use Tester\Assert;

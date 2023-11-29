@@ -1,13 +1,11 @@
-<?php
+<?php declare(strict_types = 1);
 
-declare(strict_types=1);
+use Contributte\Tester\Environment;
 
-namespace Contributte\JsonRPC\Tests;
+if (@!include __DIR__ . '/../vendor/autoload.php') {
+	echo 'Install Nette Tester using `composer update --dev`';
+	exit(1);
+}
 
-use Tester\Environment;
-
-require __DIR__ . '/../vendor/autoload.php';
-
-Environment::setup();
-
-date_default_timezone_set('Europe/Prague');
+Environment::setup(__DIR__);
+Environment::setupFinals();

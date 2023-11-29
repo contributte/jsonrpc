@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Contributte\JsonRPC\UnitTests\JsonRPC;
+namespace Tests\Cases\Unit;
 
 require_once __DIR__ . '/../../bootstrap.php';
 

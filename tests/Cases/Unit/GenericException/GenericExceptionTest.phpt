@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Contributte\JsonRPC\UnitTests\JsonRPC\GenericException;
+namespace Tests\Cases\Unit\GenericException;
 
 use Contributte\JsonRPC\GenericException\InvalidParamsException;
 use Contributte\JsonRPC\GenericException\InvalidRequestException;

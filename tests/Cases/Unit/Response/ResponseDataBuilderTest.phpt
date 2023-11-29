@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Contributte\JsonRPC\UnitTests\JsonRPC\Response;
+namespace Tests\Cases\Unit\Response;
 
 use Contributte\JsonRPC\Request\IRequest;
 use Contributte\JsonRPC\Request\RequestCollection;

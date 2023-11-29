@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Contributte\JsonRPC\UnitTests\JsonRPC\Request;
+namespace Tests\Cases\Unit\Request;
 
 use Contributte\JsonRPC\Request\RequestCollectionFactory;
 use Contributte\JsonRPC\Request\Type\InvalidFormatRequest;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Contributte\JsonRPC\UnitTests\JsonRPC\Response\Type;
+namespace Tests\Cases\Unit\Response\Type;
 
 use Contributte\JsonRPC\GenericException\InvalidParamsException;
 use Contributte\JsonRPC\Response\Enum\GenericCodes;

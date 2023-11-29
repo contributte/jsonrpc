@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Contributte\JsonRPC\Tests\Utils;
+namespace Contributte\JsonRPC\Tests\Toolkit;
 
-use Nette\Configurator;
+use Contributte\Tester\Environment;
+use Nette\Bootstrap\Configurator;
 use Nette\DI\Container;
 use Predis\Client;
 use Tester\TestCase;
+use Throwable;
 
 abstract class IntegrationTestCase extends TestCase
 {
@@ -29,8 +31,13 @@ abstract class IntegrationTestCase extends TestCase
 	{
 		parent::setUp();
 
-		$client = $this->getRedisClient();
-		$client->select(6);
+		try {
+			$client = $this->getRedisClient();
+			$client->ping();
+			$client->select(6);
+		} catch (Throwable $e) {
+			Environment::skip('Redis is not available.');
+		}
 	}
 
 
@@ -56,23 +63,23 @@ abstract class IntegrationTestCase extends TestCase
 	{
 		$rootDir = __DIR__ . '/../..';
 
-		$config = new Configurator;
+		$config = new Configurator();
 		$localConfigFile = __DIR__ . '/../config/config.local.neon';
 
 		// share compiled container between tests
-		$config->setTempDirectory(__DIR__ . '/../temp');
+		$config->setTempDirectory(Environment::getTestDir());
 
-		$config->addParameters([
+		$config->addStaticParameters([
 			'rootDir' => $rootDir,
 		]);
 
-		$config->addConfig(__DIR__ . '/../config/config.test.neon');
+		$config->addConfig(__DIR__ . '/../Fixtures/config.test.neon');
 
 		if (file_exists($localConfigFile)) {
 			$config->addConfig($localConfigFile);
 		}
 
-		$config->addParameters([
+		$config->addStaticParameters([
 			'wwwDir' => $rootDir . '/www',
 			'appDir' => $rootDir . '/src',
 		]);

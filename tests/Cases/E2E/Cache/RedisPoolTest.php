@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Contributte\JsonRPC\Tests\IntegrationTests\Cache;
-
-require_once __DIR__ . '/../../bootstrap.php';
+namespace Tests\Cases\E2E\Cache;
 
 use Contributte\JsonRPC\Cache\Key\JsonSchemaMemberKey;
 use Contributte\JsonRPC\Cache\RedisPool;
 use Contributte\JsonRPC\Cache\SchemaCacheItem;
-use Contributte\JsonRPC\Tests\Utils\IntegrationTestCase;
+use Contributte\JsonRPC\Tests\Toolkit\IntegrationTestCase;
 use Tester\Assert;
+
+require_once __DIR__ . '/../../../bootstrap.php';
 
 /**
  * @testCase
@@ -19,7 +19,6 @@ class RedisPoolTest extends IntegrationTestCase
 {
 
 	private RedisPool $redisPool;
-
 
 	public function testBasicFunctionality(): void
 	{
@@ -76,7 +75,6 @@ class RedisPoolTest extends IntegrationTestCase
 		Assert::equal($emptyItem->get(), $emptyItemFromCache->get());
 	}
 
-
 	protected function setUp(): void
 	{
 		parent::setUp();
@@ -84,8 +82,11 @@ class RedisPoolTest extends IntegrationTestCase
 		/** @var RedisPool $redisPool */
 		$redisPool = $this->getContainer()->getByType(RedisPool::class);
 
+		$redisPool->
+
 		$this->redisPool = $redisPool;
 	}
+
 }
 
 (new RedisPoolTest())->run();

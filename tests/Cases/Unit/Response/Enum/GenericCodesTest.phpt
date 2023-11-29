@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Contributte\JsonRPC\UnitTests\JsonRPC\Response\Enum;
+namespace Tests\Cases\Unit\Response\Enum;
 
 use Contributte\JsonRPC\Response\Enum\GenericCodes;
 use Tester\Assert;
