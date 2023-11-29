@@ -31,10 +31,11 @@
     "psr/cache": "^2.0 || ^3.0"
   },
   "require-dev": {
-    "nette/tester": "^2.4.1",
-    "mockery/mockery": "^1.4",
-    "predis/predis": "^1.1",
-    "contributte/code-rules": "^1.1"
+    "mockery/mockery": "^1.6.6",
+    "contributte/qa": "^0.4",
+    "contributte/tester": "^0.4",
+    "contributte/phpstan": "^0.1",
+    "predis/predis": "^1.1.10"
   },
   "extra": {
     "branch-alias": {
