@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC;
 
@@ -15,4 +13,5 @@ interface ISchemaProvider
 	 * @throws MissingSchemaException
 	 */
 	public function getSchema(string $identifier): \stdClass;
+
 }

@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Tests\Cases\Unit\Request;
 
@@ -20,12 +18,10 @@ class RequestCollectionFactoryTest extends TestCase
 
 	private RequestCollectionFactory $requestCollectionFactory;
 
-
 	public function setUp(): void
 	{
-		$this->requestCollectionFactory = new RequestCollectionFactory;
+		$this->requestCollectionFactory = new RequestCollectionFactory();
 	}
-
 
 	public function testValidSingleRequest(): void
 	{
@@ -34,7 +30,7 @@ class RequestCollectionFactoryTest extends TestCase
 		);
 
 		foreach ($collection as $request) {
-			Assert::same(ValidFormatRequest::class, get_class($request));
+			Assert::same(ValidFormatRequest::class, $request::class);
 			Assert::same('feed.getAll', $request->getMethod());
 
 			$params = (array) $request->getParams();
@@ -50,7 +46,6 @@ class RequestCollectionFactoryTest extends TestCase
 		Assert::false($collection->isBatchedRequest());
 	}
 
-
 	public function testValidSingleRequestInArray(): void
 	{
 		$collection = $this->requestCollectionFactory->create(
@@ -59,7 +54,6 @@ class RequestCollectionFactoryTest extends TestCase
 
 		Assert::true($collection->isBatchedRequest());
 	}
-
 
 	public function testInvalidBadgeRequest(): void
 	{
@@ -71,47 +65,48 @@ class RequestCollectionFactoryTest extends TestCase
 
 		$request = $collection->current();
 
-		Assert::same(InvalidFormatRequest::class, get_class($request));
+		Assert::same(InvalidFormatRequest::class, $request::class);
 		Assert::null($request->getId());
 
 		$collection->next();
 		$request = $collection->current();
 
-		Assert::same(InvalidFormatRequest::class, get_class($request));
+		Assert::same(InvalidFormatRequest::class, $request::class);
 		Assert::same('adasdasdad', $request->getId());
 
 		$collection->next();
 		$request = $collection->current();
 
-		Assert::same(InvalidFormatRequest::class, get_class($request));
+		Assert::same(InvalidFormatRequest::class, $request::class);
 		Assert::null($request->getId());
 
 		$collection->next();
 		$request = $collection->current();
 
-		Assert::same(InvalidFormatRequest::class, get_class($request));
+		Assert::same(InvalidFormatRequest::class, $request::class);
 		Assert::same('foo', $request->getId());
 
 		$collection->next();
 		$request = $collection->current();
 
-		Assert::same(InvalidFormatRequest::class, get_class($request));
+		Assert::same(InvalidFormatRequest::class, $request::class);
 		Assert::null($request->getId());
 
 		$collection->next();
 		$request = $collection->current();
 
-		Assert::same(InvalidFormatRequest::class, get_class($request));
+		Assert::same(InvalidFormatRequest::class, $request::class);
 		Assert::same('foo', $request->getId());
 
 		$collection->next();
 		$request = $collection->current();
 
-		Assert::same(InvalidFormatRequest::class, get_class($request));
+		Assert::same(InvalidFormatRequest::class, $request::class);
 		Assert::same('foo', $request->getId());
 
 		Assert::true($collection->isBatchedRequest());
 	}
+
 }
 
 (new RequestCollectionFactoryTest())->run();

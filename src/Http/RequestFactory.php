@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\Http;
 
@@ -24,18 +22,15 @@ final class RequestFactory
 		);
 	}
 
-
 	public function getRawBody(): string
 	{
 		return (string) file_get_contents('php://input');
 	}
 
-
 	private function getUri(): string
 	{
 		return $_SERVER['REQUEST_URI'] ?? '/';
 	}
-
 
 	private function getHttpMethod(): string
 	{
@@ -55,7 +50,6 @@ final class RequestFactory
 
 		return $method;
 	}
-
 
 	/**
 	 * @return array|string[]
@@ -80,4 +74,5 @@ final class RequestFactory
 
 		return $headers;
 	}
+
 }

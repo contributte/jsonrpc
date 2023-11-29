@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\Request\Type;
 
@@ -10,8 +8,8 @@ final class InvalidFormatRequest implements IRequest
 {
 
 	private string $message;
-	private ?string $id = null;
 
+	private ?string $id = null;
 
 	public function __construct(string $message, ?string $id = null)
 	{
@@ -19,15 +17,14 @@ final class InvalidFormatRequest implements IRequest
 		$this->id = $id;
 	}
 
-
 	public function getMessage(): string
 	{
 		return $this->message;
 	}
 
-
 	public function getId(): ?string
 	{
 		return $this->id;
 	}
+
 }

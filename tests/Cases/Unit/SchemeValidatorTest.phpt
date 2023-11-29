@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Tests\Cases\Unit;
 
@@ -34,7 +32,6 @@ class SchemeValidatorTest extends TestCase
 		});
 	}
 
-
 	/**
 	 * @dataProvider dataProviderForInvalidParameters
 	 */
@@ -51,13 +48,12 @@ class SchemeValidatorTest extends TestCase
 		}, SchemaValidatorException::class, $expectedMessage);
 	}
 
-
 	/**
 	 * @return array|string[][]
 	 */
 	public function dataProviderForInvalidParameters(): array
 	{
-		return[
+		return [
 			[
 				__DIR__ . '/input/invalidArray.json',
 				'Parameters are not valid: arrayParameter : Object value found, but an array is required',
@@ -85,7 +81,6 @@ class SchemeValidatorTest extends TestCase
 		];
 	}
 
-
 	/**
 	 * @return MockInterface|ISchemaProvider
 	 */
@@ -95,9 +90,9 @@ class SchemeValidatorTest extends TestCase
 		$schemaClass = Json::decode($schema);
 
 		return Mockery::mock(ISchemaProvider::class)
-			->shouldReceive('getSchema')->andReturn($schemaClass)->getMock()
-		;
+			->shouldReceive('getSchema')->andReturn($schemaClass)->getMock();
 	}
+
 }
 
 (new SchemeValidatorTest())->run();

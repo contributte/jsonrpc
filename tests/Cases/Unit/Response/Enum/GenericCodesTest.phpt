@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Tests\Cases\Unit\Response\Enum;
 
@@ -24,6 +22,7 @@ class GenericCodesTest extends TestCase
 		Assert::same(-32602, GenericCodes::CODE_INVALID_PARAMS);
 		Assert::same(-32603, GenericCodes::CODE_INTERNAL_ERROR);
 	}
+
 }
 
 (new GenericCodesTest())->run();

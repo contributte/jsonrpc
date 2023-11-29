@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\Response;
 
@@ -14,6 +12,9 @@ use InvalidArgumentException;
 class ResponseDataBuilder implements IResponseDataBuilder
 {
 
+	/**
+	 * {@inheritdoc}
+	 */
 	public function buildResponseBadge(RequestCollection $requestCollection): array
 	{
 		if (!$requestCollection->isBatchedRequest()) {
@@ -23,7 +24,7 @@ class ResponseDataBuilder implements IResponseDataBuilder
 			$response = $requestCollection[$request];
 
 			if ($response === null) {
-				throw new \UnexpectedValueException;
+				throw new \UnexpectedValueException();
 			}
 
 			return $this->buildResponse($request, $response);
@@ -35,7 +36,7 @@ class ResponseDataBuilder implements IResponseDataBuilder
 			$response = $requestCollection[$request];
 
 			if ($response === null) {
-				throw new \UnexpectedValueException;
+				throw new \UnexpectedValueException();
 			}
 
 			$return[] = $this->buildResponse($request, $response);
@@ -44,9 +45,8 @@ class ResponseDataBuilder implements IResponseDataBuilder
 		return $return;
 	}
 
-
 	/**
-	 * @inheritdoc
+	 * {@inheritdoc}
 	 */
 	public function buildServerError(): array
 	{
@@ -57,9 +57,8 @@ class ResponseDataBuilder implements IResponseDataBuilder
 		);
 	}
 
-
 	/**
-	 * @inheritdoc
+	 * {@inheritdoc}
 	 */
 	public function buildParseError(string $errorMessage): array
 	{
@@ -70,9 +69,8 @@ class ResponseDataBuilder implements IResponseDataBuilder
 		);
 	}
 
-
 	/**
-	 * @inheritdoc
+	 * {@inheritdoc}
 	 */
 	public function buildErrorResponse(
 		int $code,
@@ -91,23 +89,21 @@ class ResponseDataBuilder implements IResponseDataBuilder
 				],
 			],
 			'id' => $id,
-			'time' => (new \DateTimeImmutable)->format(DATE_ATOM),
+			'time' => (new \DateTimeImmutable())->format(DATE_ATOM),
 		];
 	}
 
-
 	/**
-	 * @throws InvalidArgumentException
-	 * @return array|mixed[]
+	 * @return array<mixed>
 	 */
 	protected function buildResponse(IRequest $request, IResponse $response): array
 	{
 		if ($response instanceof SuccessResponse) {
 			return [
 				'jsonrpc' => '2.0',
-				'result' => $response->getResult() ?? new \stdClass,
+				'result' => $response->getResult() ?? new \stdClass(),
 				'id' => $request->getId(),
-				'time' => (new \DateTimeImmutable)->format(DATE_ATOM),
+				'time' => (new \DateTimeImmutable())->format(DATE_ATOM),
 			];
 		}
 
@@ -122,4 +118,5 @@ class ResponseDataBuilder implements IResponseDataBuilder
 
 		throw new InvalidArgumentException('Unknown response type');
 	}
+
 }

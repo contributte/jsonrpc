@@ -1,28 +1,16 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\Request;
 
 use Contributte\JsonRPC\Response\IResponse;
 
+/**
+ * @extends \SplObjectStorage<IRequest, IResponse|null>
+ */
 final class RequestCollection extends \SplObjectStorage
 {
 
 	private bool $isBatchedRequest = true;
-
-
-	public function current(): IRequest
-	{
-		$request = parent::current();
-
-		if (!$request instanceof IRequest) {
-			throw new \UnexpectedValueException;
-		}
-
-		return $request;
-	}
-
 
 	/**
 	 * {@inheritDoc}
@@ -32,15 +20,14 @@ final class RequestCollection extends \SplObjectStorage
 		return parent::offsetGet($object);
 	}
 
-
 	public function isBatchedRequest(): bool
 	{
 		return $this->isBatchedRequest;
 	}
 
-
 	public function setIsBatchedRequest(bool $isBatchedRequest = true): void
 	{
 		$this->isBatchedRequest = $isBatchedRequest;
 	}
+
 }

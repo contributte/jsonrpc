@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\Command;
 
@@ -12,4 +10,5 @@ interface ICommand
 	public function getCommandDTOClass(): string;
 
 	public function execute(ICommandDTO $commandDTO): IResponse;
+
 }

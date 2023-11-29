@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Tests\Cases\Unit\Response;
 
@@ -25,12 +23,10 @@ class ResponseDataBuilderTest extends TestCase
 
 	private ResponseDataBuilder $responseDataBuilder;
 
-
 	public function setUp(): void
 	{
-		$this->responseDataBuilder = new ResponseDataBuilder;
+		$this->responseDataBuilder = new ResponseDataBuilder();
 	}
-
 
 	public function testBuildParseError(): void
 	{
@@ -52,22 +48,20 @@ class ResponseDataBuilderTest extends TestCase
 		Assert::same($expected, $actual);
 	}
 
-
 	public function testUnknownResponseType(): void
 	{
 		$collection = $this->createSingleRequestCollection();
 
-		Assert::exception(function() use ($collection): void {
+		Assert::exception(function () use ($collection): void {
 			$this->responseDataBuilder->buildResponseBadge($collection);
 		}, \InvalidArgumentException::class, 'Unknown response type');
 	}
-
 
 	public function testBuildSingleEmptyResponse(): void
 	{
 		$expected = [
 			'jsonrpc' => '2.0',
-			'result' => new \stdClass,
+			'result' => new \stdClass(),
 			'id' => 'iddddddddd',
 		];
 
@@ -85,7 +79,6 @@ class ResponseDataBuilderTest extends TestCase
 
 		Assert::same($expected, $data);
 	}
-
 
 	public function testBuildSingleNonEmptyResponse(): void
 	{
@@ -109,7 +102,6 @@ class ResponseDataBuilderTest extends TestCase
 		Assert::same($expected, $data);
 	}
 
-
 	private function createSingleRequestCollection(
 		?IRequest $request = null,
 		?IResponse $response = null
@@ -130,6 +122,7 @@ class ResponseDataBuilderTest extends TestCase
 
 		return $collection;
 	}
+
 }
 
 (new ResponseDataBuilderTest())->run();

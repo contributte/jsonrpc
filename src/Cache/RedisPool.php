@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\Cache;
 
@@ -15,22 +13,20 @@ final class RedisPool implements CacheItemPoolInterface
 {
 
 	private int $ttlInSeconds;
+
 	private Client $predisClient;
 
-	/**
-	 * @var array|CacheItemInterface[]
-	 */
+	/** @var array|CacheItemInterface[] */
 	private array $deferrerItems = [];
-
 
 	public function __construct(
 		int $ttlInSeconds,
 		Client $predisClient
-	) {
+	)
+	{
 		$this->ttlInSeconds = $ttlInSeconds;
 		$this->predisClient = $predisClient;
 	}
-
 
 	public function getItem(string $key): CacheItemInterface
 	{
@@ -49,12 +45,12 @@ final class RedisPool implements CacheItemPoolInterface
 			new \DateInterval(sprintf('PT%sS', $this->ttlInSeconds))
 		);
 
-		return new SchemaCacheItem($redisKey, $value, $expiration, true, true);
+		return new SchemaCacheItem($redisKey, (string) $value, $expiration, true, true);
 	}
 
-
 	/**
-	 * {@inheritDoc}
+	 * @param string[] $keys
+	 * @return iterable<CacheItemInterface>
 	 */
 	public function getItems(array $keys = []): iterable
 	{
@@ -66,7 +62,6 @@ final class RedisPool implements CacheItemPoolInterface
 
 		return $items;
 	}
-
 
 	/**
 	 * {@inheritDoc}
@@ -81,12 +76,10 @@ final class RedisPool implements CacheItemPoolInterface
 		) === 1;
 	}
 
-
 	public function clear(): bool
 	{
 		throw new NotImplementedException();
 	}
-
 
 	/**
 	 * {@inheritDoc}
@@ -100,7 +93,6 @@ final class RedisPool implements CacheItemPoolInterface
 		return true;
 	}
 
-
 	/**
 	 * {@inheritDoc}
 	 */
@@ -112,7 +104,6 @@ final class RedisPool implements CacheItemPoolInterface
 
 		return true;
 	}
-
 
 	public function save(CacheItemInterface $item): bool
 	{
@@ -127,14 +118,12 @@ final class RedisPool implements CacheItemPoolInterface
 		return true;
 	}
 
-
 	public function saveDeferred(CacheItemInterface $item): bool
 	{
 		$this->deferrerItems[] = $item;
 
 		return true;
 	}
-
 
 	public function commit(): bool
 	{
@@ -144,7 +133,6 @@ final class RedisPool implements CacheItemPoolInterface
 
 		return true;
 	}
-
 
 	private function createKey(string $key): JsonSchemaMemberKey
 	{
@@ -158,4 +146,5 @@ final class RedisPool implements CacheItemPoolInterface
 
 		return new JsonSchemaMemberKey($project, $endpoint);
 	}
+
 }

@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\GenericException;
 
@@ -17,9 +15,9 @@ final class InvalidParamsException extends GenericException implements IJsonRPCA
 		return GenericCodes::CODE_INVALID_PARAMS;
 	}
 
-
 	public function getGeneralMessage(): string
 	{
 		return 'Invalid params';
 	}
+
 }

@@ -1,14 +1,12 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Tests\Cases\E2E\Cache;
 
 use Contributte\JsonRPC\Cache\Key\JsonSchemaMemberKey;
 use Contributte\JsonRPC\Cache\RedisPool;
 use Contributte\JsonRPC\Cache\SchemaCacheItem;
-use Contributte\JsonRPC\Tests\Toolkit\IntegrationTestCase;
 use Tester\Assert;
+use Tests\Toolkit\IntegrationTestCase;
 
 require_once __DIR__ . '/../../../bootstrap.php';
 
@@ -52,9 +50,7 @@ class RedisPoolTest extends IntegrationTestCase
 			$itemsFromCache = iterator_to_array($itemsFromCache);
 		}
 
-		$valuesFromCache = array_map(function (SchemaCacheItem $item): string {
-			return $item->get();
-		}, $itemsFromCache);
+		$valuesFromCache = array_map(fn (SchemaCacheItem $item): string => $item->get(), $itemsFromCache);
 
 		Assert::equal([
 			$item->get(),
@@ -82,9 +78,7 @@ class RedisPoolTest extends IntegrationTestCase
 		/** @var RedisPool $redisPool */
 		$redisPool = $this->getContainer()->getByType(RedisPool::class);
 
-		$redisPool->
-
-		$this->redisPool = $redisPool;
+		$redisPool->$this->redisPool = $redisPool;
 	}
 
 }

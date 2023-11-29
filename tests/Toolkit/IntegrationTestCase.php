@@ -1,8 +1,6 @@
-<?php
+<?php declare(strict_types = 1);
 
-declare(strict_types=1);
-
-namespace Contributte\JsonRPC\Tests\Toolkit;
+namespace Tests\Toolkit;
 
 use Contributte\Tester\Environment;
 use Nette\Bootstrap\Configurator;
@@ -16,7 +14,6 @@ abstract class IntegrationTestCase extends TestCase
 
 	private ?Container $container = null;
 
-
 	protected function getContainer(): Container
 	{
 		if ($this->container === null) {
@@ -25,7 +22,6 @@ abstract class IntegrationTestCase extends TestCase
 
 		return $this->container;
 	}
-
 
 	protected function setUp(): void
 	{
@@ -40,7 +36,6 @@ abstract class IntegrationTestCase extends TestCase
 		}
 	}
 
-
 	protected function tearDown(): void
 	{
 		parent::setUp();
@@ -49,7 +44,6 @@ abstract class IntegrationTestCase extends TestCase
 		$client->flushdb();
 	}
 
-
 	protected function getRedisClient(): Client
 	{
 		/** @var Client $client */
@@ -57,7 +51,6 @@ abstract class IntegrationTestCase extends TestCase
 
 		return $client;
 	}
-
 
 	private function createContainer(): Container
 	{
@@ -88,4 +81,5 @@ abstract class IntegrationTestCase extends TestCase
 
 		return $this->container = $container;
 	}
+
 }

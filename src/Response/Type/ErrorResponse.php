@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\Response\Type;
 
@@ -11,9 +9,21 @@ final class ErrorResponse implements IResponse
 {
 
 	private int $code;
+
 	private string $generalMessage;
+
 	private string $description;
 
+	public function __construct(
+		int $code,
+		string $generalMessage,
+		?string $description = null
+	)
+	{
+		$this->code = $code;
+		$this->generalMessage = $generalMessage;
+		$this->description = $description ?? $generalMessage;
+	}
 
 	public static function fromJsonRPCAwareException(IJsonRPCAwareException $e): self
 	{
@@ -24,32 +34,19 @@ final class ErrorResponse implements IResponse
 		);
 	}
 
-
-	public function __construct(
-		int $code,
-		string $generalMessage,
-		?string $description = null
-	) {
-		$this->code = $code;
-		$this->generalMessage = $generalMessage;
-		$this->description = $description ?? $generalMessage;
-	}
-
-
 	public function getCode(): int
 	{
 		return $this->code;
 	}
-
 
 	public function getGeneralMessage(): string
 	{
 		return $this->generalMessage;
 	}
 
-
 	public function getDescription(): string
 	{
 		return $this->description;
 	}
+
 }

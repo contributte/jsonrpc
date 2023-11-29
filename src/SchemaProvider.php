@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC;
 
@@ -13,25 +11,27 @@ use League\Flysystem\Filesystem;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
 use Psr\Cache\CacheItemPoolInterface;
+use UnexpectedValueException;
 
 final class SchemaProvider implements ISchemaProvider
 {
 
 	private Filesystem $schemaFileSystem;
-	private string $projectName;
-	private CacheItemPoolInterface $cacheItemPool;
 
+	private string $projectName;
+
+	private CacheItemPoolInterface $cacheItemPool;
 
 	public function __construct(
 		string $projectName,
 		Filesystem $schemaFileSystem,
 		CacheItemPoolInterface $cacheItemPool
-	) {
+	)
+	{
 		$this->projectName = $projectName;
 		$this->schemaFileSystem = $schemaFileSystem;
 		$this->cacheItemPool = $cacheItemPool;
 	}
-
 
 	/**
 	 * @throws SchemaValidatorException
@@ -42,10 +42,10 @@ final class SchemaProvider implements ISchemaProvider
 		$key = new JsonSchemaMemberKey($this->projectName, $identifier);
 
 		if ($this->cacheItemPool->hasItem($key->getMemberKey())) {
-			return $this->parseJsonSchema($this->cacheItemPool->getItem($key->getMemberKey())->get(), $identifier);
-		}
+			$item = $this->cacheItemPool->getItem($key->getMemberKey())->get();
 
-		$schema = null;
+			return $this->parseJsonSchema($item, $identifier);
+		}
 
 		try {
 			$schemaFilePath = $this->getSchemaFilePath($identifier);
@@ -64,7 +64,6 @@ final class SchemaProvider implements ISchemaProvider
 		return $this->parseJsonSchema($item->get(), $identifier);
 	}
 
-
 	private function getSchemaFilePath(string $identifier): string
 	{
 		$path = sprintf('%s.json', $identifier);
@@ -78,11 +77,18 @@ final class SchemaProvider implements ISchemaProvider
 		return $path;
 	}
 
-
-	private function parseJsonSchema(string $jsonSchema, string $identifier): \stdClass
+	private function parseJsonSchema(mixed $jsonSchema, string $identifier): \stdClass
 	{
+		if (!is_string($jsonSchema)) {
+			throw new UnexpectedValueException(sprintf(
+				'Schema for project %s and endpoint %s contains invalid JSON',
+				$this->projectName,
+				$identifier
+			));
+		}
+
 		try {
-			return Json::decode($jsonSchema);
+			return (object) Json::decode($jsonSchema);
 		} catch (JsonException $e) {
 			throw new SchemaValidatorException(sprintf(
 				'Schema for project %s and endpoint %s contains invalid JSON',
@@ -92,7 +98,6 @@ final class SchemaProvider implements ISchemaProvider
 		}
 	}
 
-
 	private function createMissingSchemaException(string $identifier): MissingSchemaException
 	{
 		return new MissingSchemaException(sprintf(
@@ -101,4 +106,5 @@ final class SchemaProvider implements ISchemaProvider
 			$identifier
 		));
 	}
+
 }

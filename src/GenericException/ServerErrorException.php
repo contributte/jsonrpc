@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\GenericException;
 
@@ -17,9 +15,9 @@ final class ServerErrorException extends GenericException implements IJsonRPCAwa
 		return GenericCodes::CODE_INTERNAL_ERROR;
 	}
 
-
 	public function getGeneralMessage(): string
 	{
 		return 'Internal error';
 	}
+
 }

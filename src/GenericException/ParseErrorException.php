@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\GenericException;
 
@@ -18,9 +16,9 @@ final class ParseErrorException extends GenericException implements IJsonRPCAwar
 		return GenericCodes::CODE_PARSE_ERROR;
 	}
 
-
 	public function getGeneralMessage(): string
 	{
 		return 'Parse error';
 	}
+
 }

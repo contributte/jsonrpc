@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC;
 
@@ -13,12 +11,10 @@ class SchemeValidator
 
 	private ISchemaProvider $schemaProvider;
 
-
 	public function __construct(ISchemaProvider $schemaProvider)
 	{
 		$this->schemaProvider = $schemaProvider;
 	}
-
 
 	/**
 	 * @throws SchemaValidatorException
@@ -28,7 +24,7 @@ class SchemeValidator
 	{
 		$schema = $this->schemaProvider->getSchema($identifier);
 
-		$validator = new Validator;
+		$validator = new Validator();
 
 		try {
 			$validator->validate($parameters, $schema);
@@ -42,12 +38,11 @@ class SchemeValidator
 			return;
 		}
 
-		$errors = array_map(function (array $error): string {
-			return sprintf('%s : %s', $error['property'], $error['message']);
-		}, $validator->getErrors());
+		$errors = array_map(fn (array $error): string => sprintf('%s : %s', $error['property'], $error['message']), $validator->getErrors());
 
 		throw new SchemaValidatorException(
 			sprintf('Parameters are not valid: %s', implode(', ', $errors))
 		);
 	}
+
 }

@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Tests\Cases\Unit\Response\Type;
 
@@ -29,6 +27,7 @@ class SuccessResponseTest extends TestCase
 
 		Assert::same($result, $response->getResult());
 	}
+
 }
 
 (new SuccessResponseTest())->run();

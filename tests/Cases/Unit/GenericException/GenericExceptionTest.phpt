@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Tests\Cases\Unit\GenericException;
 
@@ -30,7 +28,6 @@ class GenericExceptionTest extends TestCase
 		Assert::same('Foo', $e->getMessage());
 	}
 
-
 	public function testInvalidRequestException(): void
 	{
 		$e = new InvalidRequestException('Foo');
@@ -39,7 +36,6 @@ class GenericExceptionTest extends TestCase
 		Assert::same('Invalid request', $e->getGeneralMessage());
 		Assert::same('Foo', $e->getMessage());
 	}
-
 
 	public function testMethodNotFoundException(): void
 	{
@@ -50,7 +46,6 @@ class GenericExceptionTest extends TestCase
 		Assert::same('Foo', $e->getMessage());
 	}
 
-
 	public function testParseErrorException(): void
 	{
 		$e = new ParseErrorException('Foo');
@@ -60,7 +55,6 @@ class GenericExceptionTest extends TestCase
 		Assert::same('Foo', $e->getMessage());
 	}
 
-
 	public function testServerErrorException(): void
 	{
 		$e = new ServerErrorException('Foo');
@@ -69,6 +63,7 @@ class GenericExceptionTest extends TestCase
 		Assert::same('Internal error', $e->getGeneralMessage());
 		Assert::same('Foo', $e->getMessage());
 	}
+
 }
 
 (new GenericExceptionTest())->run();

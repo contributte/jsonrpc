@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\Request;
 
@@ -24,7 +22,7 @@ final class RequestCollectionFactory implements IRequestCollectionFactory
 			throw new RequestCollectionCreationException('Invalid payload data - invalid json');
 		}
 
-		$collection = new RequestCollection;
+		$collection = new RequestCollection();
 
 		/**
 		 * Map array of requests into RequestCollection
@@ -47,7 +45,6 @@ final class RequestCollectionFactory implements IRequestCollectionFactory
 
 		return $collection;
 	}
-
 
 	/**
 	 * @param array|mixed[]|\stdClass $requestData
@@ -83,7 +80,6 @@ final class RequestCollectionFactory implements IRequestCollectionFactory
 		return new ValidFormatRequest($requestData->method, $requestData->params, $id);
 	}
 
-
 	/**
 	 * @param array|mixed[]|\stdClass $requestData
 	 */
@@ -100,4 +96,5 @@ final class RequestCollectionFactory implements IRequestCollectionFactory
 
 		return new InvalidFormatRequest($errorMessage);
 	}
+
 }

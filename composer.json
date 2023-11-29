@@ -9,16 +9,6 @@
       "email": "me@paveljanda.com"
     }
   ],
-  "autoload": {
-    "psr-4": {
-      "Contributte\\JsonRPC\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Contributte\\JsonRPC\\Tests\\": "tests/"
-    }
-  },
   "require": {
     "php": ">=8.1",
     "nette/di": "^3.1.11",
@@ -36,6 +26,16 @@
     "contributte/tester": "^0.4",
     "contributte/phpstan": "^0.1",
     "predis/predis": "^1.1.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "Contributte\\JsonRPC\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
   },
   "extra": {
     "branch-alias": {

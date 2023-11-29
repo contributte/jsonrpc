@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\Response;
 
@@ -9,17 +7,18 @@ use Contributte\JsonRPC\Request\RequestCollection;
 interface IResponseDataBuilder
 {
 
+	/**
+	 * @return array<mixed>
+	 */
 	public function buildResponseBadge(RequestCollection $requestCollection): array;
 
-
 	/**
-	 * @return array|mixed[]
+	 * @return array<mixed>
 	 */
 	public function buildServerError(): array;
 
-
 	/**
-	 * @return array|mixed[]
+	 * @return array<mixed>
 	 */
 	public function buildErrorResponse(
 		int $code,
@@ -28,9 +27,9 @@ interface IResponseDataBuilder
 		?string $id = null
 	): array;
 
-
 	/**
-	 * @return array|mixed[]
+	 * @return array<mixed>
 	 */
 	public function buildParseError(string $errorMessage): array;
+
 }

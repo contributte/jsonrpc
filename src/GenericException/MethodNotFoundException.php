@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\GenericException;
 
@@ -17,9 +15,9 @@ final class MethodNotFoundException extends GenericException implements IJsonRPC
 		return GenericCodes::CODE_METHOD_NOT_FOUND;
 	}
 
-
 	public function getGeneralMessage(): string
 	{
 		return 'Method not found';
 	}
+
 }

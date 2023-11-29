@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\Request;
 
@@ -22,15 +20,14 @@ class RequestProcessor implements IRequestProcessor
 {
 
 	private CommandProvider $commandProvider;
-	private SchemeValidator $schemeValidator;
 
+	private SchemeValidator $schemeValidator;
 
 	public function __construct(CommandProvider $commandProvider, SchemeValidator $schemeValidator)
 	{
 		$this->commandProvider = $commandProvider;
 		$this->schemeValidator = $schemeValidator;
 	}
-
 
 	/**
 	 * @throws IJsonRPCAwareException
@@ -49,7 +46,6 @@ class RequestProcessor implements IRequestProcessor
 		return $command->execute($commandDTO);
 	}
 
-
 	/**
 	 * @throws IJsonRPCAwareException
 	 */
@@ -61,7 +57,6 @@ class RequestProcessor implements IRequestProcessor
 			throw new MethodNotFoundException($e->getMessage());
 		}
 	}
-
 
 	/**
 	 * @throws IJsonRPCAwareException
@@ -77,7 +72,6 @@ class RequestProcessor implements IRequestProcessor
 		}
 	}
 
-
 	/**
 	 * @throws IJsonRPCAwareException
 	 */
@@ -89,11 +83,11 @@ class RequestProcessor implements IRequestProcessor
 		$commandDTOClass = $command->getCommandDTOClass();
 
 		if (!class_exists($commandDTOClass)) {
-			throw new ServerErrorException("Class $commandDTOClass does not exist");
+			throw new ServerErrorException(sprintf('Class %s does not exist', $commandDTOClass));
 		}
 
 		if (!in_array(ICommandDTO::class, (array) class_implements($commandDTOClass), true)) {
-			throw new ServerErrorException("$commandDTOClass does not implement " . ICommandDTO::class);
+			throw new ServerErrorException(sprintf('%s does not implement %s', $commandDTOClass, ICommandDTO::class));
 		}
 
 		try {
@@ -102,4 +96,5 @@ class RequestProcessor implements IRequestProcessor
 			throw new InvalidParamsException($e->getMessage(), 0, $e);
 		}
 	}
+
 }

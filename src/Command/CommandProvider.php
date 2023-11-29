@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Contributte\JsonRPC\Command;
 
@@ -13,23 +11,18 @@ class CommandProvider
 
 	private Container $container;
 
-	/**
-	 * @var string[]
-	 */
+	/** @var string[] */
 	private array $commandMapping = [];
-
 
 	public function __construct(Container $container)
 	{
 		$this->container = $container;
 	}
 
-
 	public function addCommandClass(string $commandName, string $commandClass): void
 	{
 		$this->commandMapping[$commandName] = $commandClass;
 	}
-
 
 	/**
 	 * @throws CommandNotFoundException
@@ -37,7 +30,7 @@ class CommandProvider
 	public function getCommandByName(string $commandName): ICommand
 	{
 		if (!isset($this->commandMapping[$commandName])) {
-			throw new CommandNotFoundException("Unknown command [$commandName]");
+			throw new CommandNotFoundException(sprintf('Unknown command [%s]', $commandName));
 		}
 
 		/** @var class-string $commandClass */
@@ -46,15 +39,16 @@ class CommandProvider
 		try {
 			$command = $this->container->getByType($commandClass);
 		} catch (MissingServiceException $e) {
-			throw new CommandNotFoundException("Unknown command [$commandClass]", $e->getCode(), $e);
+			throw new CommandNotFoundException(sprintf('Unknown command [%s]', $commandClass), $e->getCode(), $e);
 		}
 
 		if (!$command instanceof ICommand) {
 			throw new CommandNotFoundException(
-				"Command [$commandClass] is not an instance of " . ICommand::class
+				sprintf('Command [%s] is not an instance of %s', $commandClass, ICommand::class)
 			);
 		}
 
 		return $command;
 	}
+
 }

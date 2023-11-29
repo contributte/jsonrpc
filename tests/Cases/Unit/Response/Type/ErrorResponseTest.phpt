@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types = 1);
 
 namespace Tests\Cases\Unit\Response\Type;
 
@@ -32,13 +30,12 @@ class ErrorResponseTest extends TestCase
 		Assert::same('Message', $errorResponse->getDescription());
 	}
 
-
 	public function testExceptionFactory(): void
 	{
 		$fooException = new \Exception('Foo exception');
 		$jsonRpcAwareException = new InvalidParamsException('Test description');
 
-		Assert::exception(function() use ($fooException): void {
+		Assert::exception(function () use ($fooException): void {
 			ErrorResponse::fromJsonRPCAwareException($fooException);
 		}, \TypeError::class);
 
@@ -48,6 +45,7 @@ class ErrorResponseTest extends TestCase
 		Assert::same('Invalid params', $errorResponse->getGeneralMessage());
 		Assert::same('Test description', $errorResponse->getDescription());
 	}
+
 }
 
 (new ErrorResponseTest())->run();
