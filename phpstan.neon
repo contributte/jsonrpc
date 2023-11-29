@@ -1,2 +1,18 @@
 includes:
-	- vendor/contributte/code-rules/paveljanda/phpstan.neon
+	- vendor/contributte/phpstan/phpstan.neon
+
+parameters:
+	level: 9
+	phpVersion: 80100
+
+	scanDirectories:
+		- src
+
+	fileExtensions:
+		- php
+
+	paths:
+		- src
+		- .docs
+
+	ignoreErrors:
