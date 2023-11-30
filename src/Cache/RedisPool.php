@@ -112,7 +112,7 @@ final class RedisPool implements CacheItemPoolInterface
 		$this->predisClient->hset(
 			$redisKey->getKeyString(),
 			$redisKey->getMemberKey(),
-			$item->get()
+			(string) $item->get() // @phpstan-ignore-line
 		);
 
 		return true;

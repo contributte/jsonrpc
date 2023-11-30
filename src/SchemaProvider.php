@@ -6,8 +6,8 @@ use Contributte\JsonRPC\Cache\Key\JsonSchemaMemberKey;
 use Contributte\JsonRPC\Cache\SchemaCacheItem;
 use Contributte\JsonRPC\Exception\MissingSchemaException;
 use Contributte\JsonRPC\Exception\SchemaValidatorException;
-use League\Flysystem\FileNotFoundException;
 use League\Flysystem\Filesystem;
+use League\Flysystem\FilesystemException;
 use Nette\Utils\Json;
 use Nette\Utils\JsonException;
 use Psr\Cache\CacheItemPoolInterface;
@@ -50,11 +50,7 @@ final class SchemaProvider implements ISchemaProvider
 		try {
 			$schemaFilePath = $this->getSchemaFilePath($identifier);
 			$schema = $this->schemaFileSystem->read($schemaFilePath);
-		} catch (FileNotFoundException $e) {
-			throw $this->createMissingSchemaException($identifier);
-		}
-
-		if (!is_string($schema)) {
+		} catch (FilesystemException $e) {
 			throw $this->createMissingSchemaException($identifier);
 		}
 

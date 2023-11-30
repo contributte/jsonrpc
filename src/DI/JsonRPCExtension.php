@@ -10,8 +10,8 @@ use Contributte\JsonRPC\Request\RequestProcessor;
 use Contributte\JsonRPC\Response\ResponseDataBuilder;
 use Contributte\JsonRPC\SchemaProvider;
 use Contributte\JsonRPC\SchemeValidator;
-use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
+use League\Flysystem\Local\LocalFilesystemAdapter;
 use Nette\DI\CompilerExtension;
 use Nette\DI\Extensions\InjectExtension;
 use Nette\Schema\Expect;
@@ -47,7 +47,7 @@ final class JsonRPCExtension extends CompilerExtension
 			->setType(RequestCollectionFactory::class);
 
 		$builder->addDefinition($this->prefix('localAdapterForSchemes'))
-			->setFactory(Local::class, [$config->jsonSchemaFilesDir]);
+			->setFactory(LocalFilesystemAdapter::class, [$config->jsonSchemaFilesDir]);
 
 		$builder->addDefinition($this->prefix('schemaFileSystem'))
 			->setType(Filesystem::class)->setAutowired(false);
