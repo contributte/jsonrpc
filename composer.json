@@ -15,7 +15,7 @@
     "nette/utils": "^4.0.3",
     "nette/bootstrap": "^3.2.1",
     "guzzlehttp/guzzle": "^7.8.0",
-    "psr/http-message": "^1.1.0",
+    "psr/http-message": "^1.1.0 || ^2.0",
     "justinrainbow/json-schema": "^5.2.11",
     "league/flysystem": "^3.21.0",
     "psr/cache": "^2.0 || ^3.0"
