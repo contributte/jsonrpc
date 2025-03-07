@@ -29,22 +29,23 @@ final class RequestFactory
 
 	private function getUri(): string
 	{
-		return $_SERVER['REQUEST_URI'] ?? '/';
+		return $this->getRequestHeaderValue('REQUEST_URI') ?? '/';
 	}
 
 	private function getHttpMethod(): string
 	{
-		$method = $_SERVER['REQUEST_METHOD'] ?? null;
+		$method = $this->getRequestHeaderValue('REQUEST_METHOD');
 
 		if ($method === null) {
 			throw new MissingHttpMethod('Please call api by HTTP agent');
 		}
 
-		if ($method === 'POST' && isset($_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'])) {
-			$matched = preg_match('#^[A-Z]+\z#', $_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE']);
+		$xHttpMethodOverride = $this->getRequestHeaderValue('HTTP_X_HTTP_METHOD_OVERRIDE');
+		if ($method === 'POST' && $xHttpMethodOverride !== null) {
+			$matched = preg_match('#^[A-Z]+\z#', $xHttpMethodOverride);
 
 			if ($matched === 1) {
-				$method = $_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'];
+				$method = $xHttpMethodOverride;
 			}
 		}
 
@@ -52,11 +53,12 @@ final class RequestFactory
 	}
 
 	/**
-	 * @return array|string[]
+	 * @return array<string,string>
 	 */
 	private function getHttpHeaders(): array
 	{
 		if (function_exists('apache_request_headers')) {
+			/** @var array<string,string> $headers */
 			$headers = apache_request_headers();
 		} else {
 			$headers = [];
@@ -68,11 +70,20 @@ final class RequestFactory
 					continue;
 				}
 
-				$headers[str_replace('_', '-', $key)] = $value;
+				$headers[str_replace('_', '-', $key)] = $this->getRequestHeaderValue($key) ?? '';
 			}
 		}
 
 		return $headers;
+	}
+
+	private function getRequestHeaderValue(string $headerName): ?string
+	{
+		if (array_key_exists($headerName, $_SERVER) && is_string($_SERVER[$headerName])) {
+			return $_SERVER[$headerName];
+		}
+
+		return null;
 	}
 
 }

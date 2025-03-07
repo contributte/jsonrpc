@@ -28,9 +28,10 @@ final class RequestCollectionFactory implements IRequestCollectionFactory
 		 * Map array of requests into RequestCollection
 		 */
 		if (is_array($requestData)) {
+			/** @var mixed[] $oneRequestData */
 			foreach ($requestData as $oneRequestData) {
 				$collection->attach(
-					$this->createRequestFromRequestData($oneRequestData)
+					$this->createRequestFromRequestData($oneRequestData),
 				);
 			}
 		} elseif ($requestData instanceof \stdClass) {
@@ -85,7 +86,7 @@ final class RequestCollectionFactory implements IRequestCollectionFactory
 	 */
 	private function createInvalidRequest(
 		$requestData,
-		string $errorMessage
+		string $errorMessage,
 	): InvalidFormatRequest
 	{
 		if ($requestData instanceof \stdClass) {
