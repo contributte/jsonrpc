@@ -22,7 +22,7 @@
   },
   "require-dev": {
     "mockery/mockery": "^1.6.6",
-    "contributte/qa": "^0.4",
+    "contributte/qa": "^0.5",
     "contributte/tester": "^0.4",
     "contributte/phpstan": "^0.2",
     "predis/predis": "^2.2.2"
