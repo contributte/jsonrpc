@@ -115,7 +115,7 @@ class ResponseDataBuilderTest extends TestCase
 
 		$collection = new RequestCollection();
 
-		$collection->attach($request);
+		$collection->offsetSet($request);
 		$collection[$request] = $response;
 
 		$collection->setIsBatchedRequest(false);

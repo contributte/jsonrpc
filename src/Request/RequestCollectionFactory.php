@@ -30,7 +30,7 @@ final class RequestCollectionFactory implements IRequestCollectionFactory
 		if (is_array($requestData)) {
 			/** @var mixed[] $oneRequestData */
 			foreach ($requestData as $oneRequestData) {
-				$collection->attach(
+				$collection->offsetSet(
 					$this->createRequestFromRequestData($oneRequestData),
 				);
 			}
@@ -38,7 +38,7 @@ final class RequestCollectionFactory implements IRequestCollectionFactory
 			/**
 			 * Even when there is a single command, put it into RequestCollection
 			 */
-			$collection->attach($this->createRequestFromRequestData($requestData));
+			$collection->offsetSet($this->createRequestFromRequestData($requestData));
 			$collection->setIsBatchedRequest(false);
 		} else {
 			throw new RequestCollectionCreationException('Invalid payload data - invalid json');
