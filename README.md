@@ -2,7 +2,7 @@
 
 <p align=center>
   <a href="https://github.com/contributte/jsonrpc/actions"><img src="https://badgen.net/github/checks/contributte/jsonrpc/master"></a>
-  <a href="https://coveralls.io/r/contributte/jsonrpc"><img src="https://badgen.net/coveralls/c/github/contributte/jsonrpc"></a>
+  <a href="https://codecov.io/gh/contributte/jsonrpc"><img src="https://badgen.net/codecov/c/github/contributte/jsonrpc"></a>
   <a href="https://packagist.org/packages/contributte/jsonrpc"><img src="https://badgen.net/packagist/dm/contributte/jsonrpc"></a>
   <a href="https://packagist.org/packages/contributte/jsonrpc"><img src="https://badgen.net/packagist/v/contributte/jsonrpc"></a>
 </p>
